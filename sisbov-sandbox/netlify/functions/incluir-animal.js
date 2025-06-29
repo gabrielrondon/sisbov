@@ -16,9 +16,9 @@ exports.handler = async (event, context) => {
     // Retorna sucesso se numeroSisbov e dataNascimento forem válidos
     // Retorna erro se numeroSisbov estiver vazio ou dataNascimento for '30/02/2023'
     if (numeroSisbov && dataNascimento && dataNascimento !== '30/02/2023') {
-      filePath = path.resolve(__dirname, '../../src/api-examples/incluirAnimal_response_success.xml');
+      filePath = path.resolve(__dirname, './api-examples/incluirAnimal_response_success.xml');
     } else {
-      filePath = path.resolve(__dirname, '../../src/api-examples/incluirAnimal_response_error.xml');
+      filePath = path.resolve(__dirname, './api-examples/incluirAnimal_response_error.xml');
     }
 
     xmlContent = fs.readFileSync(filePath, 'utf8');

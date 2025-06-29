@@ -15,9 +15,9 @@ exports.handler = async (event, context) => {
     // Lógica de simulação para incluirPropriedade
     // Retorna sucesso se _nomePropriedade e _nirf forem preenchidos e _nirf não for '123'
     if (_nomePropriedade && _nirf && _nirf !== '123') {
-      filePath = path.resolve(__dirname, '../../src/api-examples/incluirPropriedade_response_success.xml');
+      filePath = path.resolve(__dirname, './api-examples/incluirPropriedade_response_success.xml');
     } else {
-      filePath = path.resolve(__dirname, '../../src/api-examples/incluirPropriedade_response_error.xml');
+      filePath = path.resolve(__dirname, './api-examples/incluirPropriedade_response_error.xml');
     }
 
     xmlContent = fs.readFileSync(filePath, 'utf8');

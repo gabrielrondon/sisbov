@@ -16,9 +16,9 @@ exports.handler = async (event, context) => {
     // Retorna sucesso se idPropriedadeOrigem for '123' e houver numerosSISBOV
     // Retorna erro caso contrário
     if (idPropriedadeOrigem === '123' && numerosSISBOV && numerosSISBOV.length > 0) {
-      filePath = path.resolve(__dirname, '../../src/api-examples/movimentarAnimal_response_success.xml');
+      filePath = path.resolve(__dirname, './api-examples/movimentarAnimal_response_success.xml');
     } else {
-      filePath = path.resolve(__dirname, '../../src/api-examples/movimentarAnimal_response_error.xml');
+      filePath = path.resolve(__dirname, './api-examples/movimentarAnimal_response_error.xml');
     }
 
     xmlContent = fs.readFileSync(filePath, 'utf8');

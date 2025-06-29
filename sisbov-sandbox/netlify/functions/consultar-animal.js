@@ -17,9 +17,9 @@ exports.handler = async (event, context) => {
     // Lógica de simulação: se o número for o de "sucesso", retorna a resposta de sucesso.
     // Caso contrário, retorna a resposta de erro.
     if (numeroSisbov === '123456789012345') {
-      filePath = path.resolve(__dirname, '../../src/api-examples/consultarDadosAnimal_response_success.xml');
+      filePath = path.resolve(__dirname, './api-examples/consultarDadosAnimal_response_success.xml');
     } else {
-      filePath = path.resolve(__dirname, '../../src/api-examples/consultarDadosAnimal_response_error.xml');
+      filePath = path.resolve(__dirname, './api-examples/consultarDadosAnimal_response_error.xml');
     }
 
     xmlContent = fs.readFileSync(filePath, 'utf8');
