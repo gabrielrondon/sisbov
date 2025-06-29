@@ -16,9 +16,9 @@ exports.handler = async (event, context) => {
     // Retorna sucesso se qtdeSolicitada for entre 1 e 100
     // Retorna erro caso contrário
     if (qtdeSolicitada >= 1 && qtdeSolicitada <= 100) {
-      filePath = path.join(process.env.LAMBDA_TASK_ROOT, 'api-examples', 'solicitarNumeracao_response_success.xml');
+      filePath = path.join(process.cwd(), 'api-examples', 'solicitarNumeracao_response_success.xml');
     } else {
-      filePath = path.join(process.env.LAMBDA_TASK_ROOT, 'api-examples', 'solicitarNumeracao_response_error.xml');
+      filePath = path.join(process.cwd(), 'api-examples', 'solicitarNumeracao_response_error.xml');
     }
 
     xmlContent = fs.readFileSync(filePath, 'utf8');
