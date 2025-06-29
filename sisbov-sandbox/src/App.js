@@ -132,10 +132,76 @@ const operations = {
     },
     endpoint: '/.netlify/functions/incluir-animal',
   },
-  // Adicione outras operações aqui no futuro
-};
-
-function App() {
+  informarMorteAnimal: {
+    name: 'Informar Morte de Animal',
+    description: 'Registra o óbito de um animal no sistema SISBOV. Use numeroSisbovAnimal inexistente para simular erro.',
+    params: [
+      { name: 'numeroSisbovAnimal', description: 'Número SISBOV do animal que morreu.', placeholder: 'Ex: BR.0001.00000000001 (sucesso) ou BR.0001.99999999999 (erro)', type: 'text' },
+      { name: 'dataMorte', description: 'Data do óbito (dd/MM/yyyy).', placeholder: 'Ex: 28/06/2025', type: 'date' },
+      { name: 'codigoTipoMorte', description: 'Código do tipo de morte (Ex: 1 para Abate, 2 para Doença).', placeholder: 'Ex: 1', type: 'number' },
+      { name: 'codigoCausaMorte', description: 'Código da causa específica da morte.', placeholder: 'Ex: 101', type: 'number' },
+    ],
+    exampleData: {
+      numeroSisbovAnimal: 'BR.0001.00000000001',
+      dataMorte: '28/06/2025',
+      codigoTipoMorte: '1',
+      codigoCausaMorte: '101',
+    },
+    endpoint: '/.netlify/functions/informar-morte-animal',
+  },
+  consultarPropriedade: {
+    name: 'Consultar Propriedade',
+    description: 'Busca os dados de uma propriedade específica pelo seu ID. Use ID 99999 para simular erro.',
+    params: [
+      { name: 'idPropriedade', description: 'ID da propriedade a ser consultada.', placeholder: 'Ex: 1001 (sucesso) ou 99999 (erro)', type: 'number' },
+    ],
+    exampleData: {
+      idPropriedade: '1001',
+    },
+    endpoint: '/.netlify/functions/consultar-propriedade',
+  },
+  recuperarTabela: {
+    name: 'Recuperar Tabela de Domínio',
+    description: 'Recupera os registros de uma tabela de domínio do SISBOV (ex: raças, tipos de morte). Use idTabela 2 para raças, 999 para erro.',
+    params: [
+      { name: 'idTabela', description: 'ID da tabela a ser recuperada (Ex: 2 para Raças, 999 para erro).', placeholder: 'Ex: 2 (sucesso) ou 999 (erro)', type: 'number' },
+    ],
+    exampleData: {
+      idTabela: '2',
+    },
+    endpoint: '/.netlify/functions/recuperar-tabela',
+  },
+  incluirProprietario: {
+    name: 'Incluir Proprietário',
+    description: 'Cadastra um novo proprietário (Pessoa Física ou Jurídica) no sistema SISBOV. Use CPF/CNPJ já existente para simular erro.',
+    params: [
+      { name: '_razaoSocial', description: 'Razão Social (para PJ).', placeholder: 'Ex: Empresa Teste Ltda.', type: 'text' },
+      { name: '_cnpj', description: 'CNPJ (para PJ). Use 11222333000144 para sucesso, 99999999999999 para erro.', placeholder: 'Ex: 11222333000144', type: 'text' },
+      { name: '_nome', description: 'Nome completo (para PF).', placeholder: 'Ex: João da Silva', type: 'text' },
+      { name: '_telefone', description: 'Telefone de contato.', placeholder: 'Ex: 61988887777', type: 'text' },
+      { name: '_email', description: 'Endereço de e-mail.', placeholder: 'Ex: joao.silva@example.com', type: 'text' },
+      { name: '_cpf', description: 'CPF (para PF). Use 11122233344 para sucesso, 99999999999 para erro.', placeholder: 'Ex: 11122233344', type: 'text' },
+      { name: '_sexo', description: 'Sexo (M/F).', placeholder: 'Ex: M', type: 'select', options: ['M', 'F'] },
+      { name: '_logradouro', description: 'Logradouro do endereço.', placeholder: 'Ex: Rua Exemplo, 123', type: 'text' },
+      { name: '_bairro', description: 'Bairro do endereço.', placeholder: 'Ex: Centro', type: 'text' },
+      { name: '_cep', description: 'CEP do endereço.', placeholder: 'Ex: 70000000', type: 'text' },
+      { name: '_codMunicipio', description: 'Código do município (IBGE).', placeholder: 'Ex: 5300108', type: 'text' },
+    ],
+    exampleData: {
+      _razaoSocial: '',
+      _cnpj: '',
+      _nome: 'João da Silva',
+      _telefone: '61988887777',
+      _email: 'joao.silva@example.com',
+      _cpf: '11122233344',
+      _sexo: 'M',
+      _logradouro: 'Rua Exemplo, 123',
+      _bairro: 'Centro',
+      _cep: '70000000',
+      _codMunicipio: '5300108',
+    },
+    endpoint: '/.netlify/functions/incluir-proprietario',
+  },
   const [selectedOperation, setSelectedOperation] = useState(Object.keys(operations)[0]);
   const [params, setParams] = useState({ numeroSisbov: '' });
   const [requestXml, setRequestXml] = useState('');

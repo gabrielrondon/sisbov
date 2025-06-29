@@ -1,0 +1,42 @@
+<!-- Resposta de sucesso para consultarPropriedade -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:consultarPropriedadeResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:consultarPropriedadeReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>123456789</ns1:idTransacao>
+        <ns1:listaErros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:status>0</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:acessoFazenda>Via BR-040</ns1:acessoFazenda>
+        <ns1:area>1000</ns1:area>
+        <ns1:bairro>Centro</ns1:bairro>
+        <ns1:cep>70000000</ns1:cep>
+        <ns1:codMunicipio>5300108</ns1:codMunicipio>
+        <ns1:distanciaSedeMunicipio>50</ns1:distanciaSedeMunicipio>
+        <ns1:enderecoCorrespondenciaBairro>Centro</ns1:enderecoCorrespondenciaBairro>
+        <ns1:enderecoCorrespondenciaCep>70000000</ns1:enderecoCorrespondenciaCep>
+        <ns1:enderecoCorrespondenciaCodMunicipio>5300108</ns1:enderecoCorrespondenciaCodMunicipio>
+        <ns1:enderecoCorrespondenciaLogradouro>Rua das Flores, 10</ns1:enderecoCorrespondenciaLogradouro>
+        <ns1:faxResidencial xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:grauLatitude>15</ns1:grauLatitude>
+        <ns1:grauLongitude>47</ns1:grauLongitude>
+        <ns1:incra>123456789012</ns1:incra>
+        <ns1:logradouro>Rua das Flores, 10</ns1:logradouro>
+        <ns1:minutoLatitude>45</ns1:minutoLatitude>
+        <ns1:minutoLongitude>30</ns1:minutoLongitude>
+        <ns1:nirf>12345678901</ns1:nirf>
+        <ns1:nomePropriedade>Fazenda Exemplo</ns1:nomePropriedade>
+        <ns1:nrFaxContato xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:nrTelefoneContato>61988887777</ns1:nrTelefoneContato>
+        <ns1:orientacaoLatitude>S</ns1:orientacaoLatitude>
+        <ns1:orientacaoLongitude>W</ns1:orientacaoLongitude>
+        <ns1:razaoSocial xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:segundoLatitude>30</ns1:segundoLatitude>
+        <ns1:segundoLongitude>15</ns1:segundoLongitude>
+        <ns1:telefoneResidencial>6133332222</ns1:telefoneResidencial>
+        <ns1:tipoPropriedade>1</ns1:tipoPropriedade>
+      </ns0:consultarPropriedadeReturn>
+    </ns0:consultarPropriedadeResponse>
+</soap:Envelope>

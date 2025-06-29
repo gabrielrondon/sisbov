@@ -1,0 +1,28 @@
+<!-- Resposta de sucesso para recuperarTabela (idTabela = 2 para Raças) -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:recuperarTabelaResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:recuperarTabelaReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>123456789</ns1:idTransacao>
+        <ns1:listaErros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:status>0</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:registros>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigo>01</ns2:codigo>
+            <ns2:descricao>NELORE</ns2:descricao>
+          </item>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigo>02</ns2:codigo>
+            <ns2:descricao>ANGUS</ns2:descricao>
+          </item>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigo>03</ns2:codigo>
+            <ns2:descricao>BRAHMAN</ns2:descricao>
+          </item>
+        </ns1:registros>
+      </ns0:recuperarTabelaReturn>
+    </ns0:recuperarTabelaResponse>
+</soap:Envelope>

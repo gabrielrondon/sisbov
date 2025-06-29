@@ -1,0 +1,25 @@
+<!-- Resposta de erro para recuperarTabela (idTabela = 999) -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:recuperarTabelaResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:recuperarTabelaReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>987654321</ns1:idTransacao>
+        <ns1:listaErros>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigoErro>TAB-001</ns2:codigoErro>
+            <ns2:menssagemErro>Tabela de domínio com ID informado não encontrada.</ns2:menssagemErro>
+            <ns2:pilhaDeErro xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <ns2:valorInformado>
+                <item>idTabela</item>
+                <item>999</item>
+            </ns2:valorInformado>
+          </item>
+        </ns1:listaErros>
+        <ns1:status>1</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:registros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </ns0:recuperarTabelaReturn>
+    </ns0:recuperarTabelaResponse>
+</soap:Envelope>
