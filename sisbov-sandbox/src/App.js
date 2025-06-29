@@ -220,5 +220,23 @@ const operations = {
     endpoint: '/.netlify/functions/reset-db',
   },
 };
+  recuperarTabela: {
+    name: 'Recuperar Tabela de Domínio',
+    description: 'Recupera os registros de uma tabela de domínio do SISBOV (ex: raças, tipos de morte). Use idTabela 2 para raças, 999 para erro.',
+    params: [
+      { name: 'idTabela', description: 'ID da tabela a ser recuperada (Ex: 2 para Raças, 999 para erro).', placeholder: 'Ex: 2 (sucesso) ou 999 (erro)', type: 'number' },
+    ],
+    exampleData: {
+      idTabela: '2',
+    },
+    endpoint: '/.netlify/functions/recuperar-tabela',
+  },
+  resetDb: {
+    name: 'Resetar Banco de Dados Simulado',
+    description: 'Limpa todos os dados do banco de dados simulado (animais, propriedades, proprietários, etc.).',
+    params: [],
+    endpoint: '/.netlify/functions/reset-db',
+  },
+};
 
 export default App;
