@@ -1,6 +1,28 @@
 const fs = require('fs');
 const path = require('path');
 
+const DB_PATH = path.join(process.cwd(), 'db.json');
+
+// Função auxiliar para ler o DB
+const readDb = () => {
+  try {
+    const data = fs.readFileSync(DB_PATH, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Erro ao ler db.json:', error);
+    return { animais: [], propriedades: [] }; // Retorna estrutura vazia em caso de erro
+  }
+};
+
+// Função auxiliar para escrever no DB
+const writeDb = (data) => {
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
+  } catch (error) {
+    console.error('Erro ao escrever db.json:', error);
+  }
+};
+
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };

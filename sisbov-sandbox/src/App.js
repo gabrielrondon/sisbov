@@ -8,8 +8,9 @@ const operations = {
     params: [
       {
         name: 'numeroSisbov',
-        description: 'O número de identificação SISBOV do animal (15 dígitos).',
-        placeholder: 'Ex: 123456789012345 (sucesso) ou 999999999999999 (erro)',
+        description: 'O número de identificação SISBOV do animal (15 dígitos). Use 123456789012345 para sucesso ou qualquer outro valor para erro.',
+        placeholder: 'Ex: 123456789012345',
+        type: 'text',
       },
     ],
     exampleData: {
@@ -21,15 +22,15 @@ const operations = {
     name: 'Incluir Propriedade',
     description: 'Cadastra uma nova propriedade rural no sistema SISBOV. Use NIRF 123 para simular um erro.',
     params: [
-      { name: '_nirf', description: 'Número do Imóvel na Receita Federal.', placeholder: 'Ex: 12345678901 (sucesso) ou 123 (erro)' },
-      { name: '_incra', description: 'Código INCRA da propriedade.', placeholder: 'Ex: 123456789012' },
-      { name: '_tipoPropriedade', description: 'Tipo da propriedade (código numérico).', placeholder: 'Ex: 1' },
-      { name: '_nomePropriedade', description: 'Nome da fazenda.', placeholder: 'Ex: Fazenda Modelo' },
-      { name: '_area', description: 'Área total da propriedade em hectares.', placeholder: 'Ex: 1000' },
-      { name: '_logradouro', description: 'Endereço da propriedade.', placeholder: 'Ex: Rua Principal, 123' },
-      { name: '_bairro', description: 'Bairro da propriedade.', placeholder: 'Ex: Centro' },
-      { name: '_cep', description: 'CEP da propriedade.', placeholder: 'Ex: 70000000' },
-      { name: '_codMunicipio', description: 'Código do município (IBGE).', placeholder: 'Ex: 5300108' },
+      { name: '_nirf', description: 'Número do Imóvel na Receita Federal.', placeholder: 'Ex: 12345678901 (sucesso) ou 123 (erro)', type: 'text' },
+      { name: '_incra', description: 'Código INCRA da propriedade.', placeholder: 'Ex: 123456789012', type: 'text' },
+      { name: '_tipoPropriedade', description: 'Tipo da propriedade (código numérico).', placeholder: 'Ex: 1', type: 'number' },
+      { name: '_nomePropriedade', description: 'Nome da fazenda.', placeholder: 'Ex: Fazenda Modelo', type: 'text' },
+      { name: '_area', description: 'Área total da propriedade em hectares.', placeholder: 'Ex: 1000', type: 'number' },
+      { name: '_logradouro', description: 'Endereço da propriedade.', placeholder: 'Ex: Rua Principal, 123', type: 'text' },
+      { name: '_bairro', description: 'Bairro da propriedade.', placeholder: 'Ex: Centro', type: 'text' },
+      { name: '_cep', description: 'CEP da propriedade.', placeholder: 'Ex: 70000000', type: 'text' },
+      { name: '_codMunicipio', description: 'Código do município (IBGE).', placeholder: 'Ex: 5300108', type: 'text' },
     ],
     exampleData: {
       _nirf: '12345678901',
@@ -48,17 +49,17 @@ const operations = {
     name: 'Movimentar Animal',
     description: 'Registra a movimentação de animais entre propriedades. Use idPropriedadeOrigem 99999 para simular um erro.',
     params: [
-      { name: 'dataValidade', description: 'Data de validade da GTA (dd/MM/yyyy).', placeholder: 'Ex: 30/06/2025' },
-      { name: 'dataEmissao', description: 'Data de emissão da GTA (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
-      { name: 'dataSaida', description: 'Data de saída dos animais da origem (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
-      { name: 'dataChegada', description: 'Data de chegada dos animais ao destino (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
-      { name: 'idPropriedadeOrigem', description: 'ID da propriedade de origem. Use 123 para sucesso, 99999 para erro.', placeholder: 'Ex: 123 (sucesso) ou 99999 (erro)' },
-      { name: 'cpfProdutorOrigem', description: 'CPF do produtor de origem.', placeholder: 'Ex: 11122233344' },
-      { name: 'cnpjProdutorOrigem', description: 'CNPJ do produtor de origem.', placeholder: 'Ex: 11222333000144' },
-      { name: 'idPropriedadeDestino', description: 'ID da propriedade de destino.', placeholder: 'Ex: 456' },
-      { name: 'cpfProdutorDestino', description: 'CPF do produtor de destino.', placeholder: 'Ex: 55566677788' },
-      { name: 'cnpjProdutorDestino', description: 'CNPJ do produtor de destino.', placeholder: 'Ex: 55666777000188' },
-      { name: 'numerosSISBOV', description: 'Lista de números SISBOV dos animais, separados por vírgula.', placeholder: 'Ex: BR.0001.00000000001,BR.0001.00000000002' },
+      { name: 'dataValidade', description: 'Data de validade da GTA (dd/MM/yyyy).', placeholder: 'Ex: 30/06/2025', type: 'date' },
+      { name: 'dataEmissao', description: 'Data de emissão da GTA (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025', type: 'date' },
+      { name: 'dataSaida', description: 'Data de saída dos animais da origem (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025', type: 'date' },
+      { name: 'dataChegada', description: 'Data de chegada dos animais ao destino (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025', type: 'date' },
+      { name: 'idPropriedadeOrigem', description: 'ID da propriedade de origem. Use 123 para sucesso, 99999 para erro.', placeholder: 'Ex: 123 (sucesso) ou 99999 (erro)', type: 'number' },
+      { name: 'cpfProdutorOrigem', description: 'CPF do produtor de origem.', placeholder: 'Ex: 11122233344', type: 'text' },
+      { name: 'cnpjProdutorOrigem', description: 'CNPJ do produtor de origem.', placeholder: 'Ex: 11222333000144', type: 'text' },
+      { name: 'idPropriedadeDestino', description: 'ID da propriedade de destino.', placeholder: 'Ex: 456', type: 'number' },
+      { name: 'cpfProdutorDestino', description: 'CPF do produtor de destino.', placeholder: 'Ex: 55566677788', type: 'text' },
+      { name: 'cnpjProdutorDestino', description: 'CNPJ do produtor de destino.', placeholder: 'Ex: 55666777000188', type: 'text' },
+      { name: 'numerosSISBOV', description: 'Lista de números SISBOV dos animais, separados por vírgula.', placeholder: 'Ex: BR.0001.00000000001,BR.0001.00000000002', type: 'text' },
     ],
     exampleData: {
       dataValidade: '30/06/2025',
@@ -79,12 +80,12 @@ const operations = {
     name: 'Solicitar Numeração',
     description: 'Solicita um lote de números de identificação (brincos) ao SISBOV. Use qtdeSolicitada fora do range 1-100 para simular um erro.',
     params: [
-      { name: 'cnpjFabrica', description: 'CNPJ da fábrica de brincos.', placeholder: 'Ex: 00111222000133' },
-      { name: 'cpfProdutor', description: 'CPF do produtor que receberá os brincos.', placeholder: 'Ex: 11122233344' },
-      { name: 'cnpjProdutor', description: 'CNPJ do produtor que receberá os brincos.', placeholder: 'Ex: 11222333000144' },
-      { name: 'idPropriedade', description: 'ID da propriedade onde os brincos serão utilizados.', placeholder: 'Ex: 123' },
-      { name: 'qtdeSolicitada', description: 'Quantidade de números desejada (entre 1 e 100 para sucesso).', placeholder: 'Ex: 10 (sucesso) ou 0 (erro)' },
-      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1' },
+      { name: 'cnpjFabrica', description: 'CNPJ da fábrica de brincos.', placeholder: 'Ex: 00111222000133', type: 'text' },
+      { name: 'cpfProdutor', description: 'CPF do produtor que receberá os brincos.', placeholder: 'Ex: 11122233344', type: 'text' },
+      { name: 'cnpjProdutor', description: 'CNPJ do produtor que receberá os brincos.', placeholder: 'Ex: 11222333000144', type: 'text' },
+      { name: 'idPropriedade', description: 'ID da propriedade onde os brincos serão utilizados.', placeholder: 'Ex: 123', type: 'number' },
+      { name: 'qtdeSolicitada', description: 'Quantidade de números desejada (entre 1 e 100 para sucesso).', placeholder: 'Ex: 10 (sucesso) ou 0 (erro)', type: 'number' },
+      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1', type: 'number' },
     ],
     exampleData: {
       cnpjFabrica: '00111222000133',
@@ -100,19 +101,19 @@ const operations = {
     name: 'Incluir Animal',
     description: 'Registra um novo animal nascido no Brasil. Use dataNascimento 30/02/2023 para simular um erro.',
     params: [
-      { name: 'dataIdentificacao', description: 'Data em que o animal foi identificado (dd/MM/yyyy).', placeholder: 'Ex: 01/01/2023' },
-      { name: 'dataNascimento', description: 'Data de nascimento do animal (dd/MM/yyyy). Use 30/02/2023 para erro.', placeholder: 'Ex: 15/12/2022 (sucesso) ou 30/02/2023 (erro)' },
-      { name: 'numeroProvisorio', description: 'Numeração provisória, se aplicável.', placeholder: 'Ex: PROV123' },
-      { name: 'numeroDefinitivo', description: 'Numeração definitiva (brinco).', placeholder: 'Ex: DEF456' },
-      { name: 'idPropriedadeNascimento', description: 'ID da propriedade onde o animal nasceu.', placeholder: 'Ex: 123' },
-      { name: 'idPropriedadeLocalizacao', description: 'ID da propriedade onde o animal se encontra.', placeholder: 'Ex: 123' },
-      { name: 'idPropriedadeResponsavel', description: 'ID da propriedade do responsável pelo animal.', placeholder: 'Ex: 123' },
-      { name: 'numeroSisbov', description: 'O número de identificação oficial do SISBOV.', placeholder: 'Ex: BR.0001.00000000001' },
-      { name: 'codigoRaca', description: 'Código da raça do animal.', placeholder: 'Ex: NELORE' },
-      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1' },
-      { name: 'sexo', description: 'Sexo do animal (M/F).', placeholder: 'Ex: M' },
-      { name: 'cnpjProdutor', description: 'CNPJ do produtor responsável.', placeholder: 'Ex: 11222333000144' },
-      { name: 'cpfProdutor', description: 'CPF do produtor responsável.', placeholder: 'Ex: 11122233344' },
+      { name: 'dataIdentificacao', description: 'Data em que o animal foi identificado (dd/MM/yyyy).', placeholder: 'Ex: 01/01/2023', type: 'date' },
+      { name: 'dataNascimento', description: 'Data de nascimento do animal (dd/MM/yyyy). Use 30/02/2023 para erro.', placeholder: 'Ex: 15/12/2022 (sucesso) ou 30/02/2023 (erro)', type: 'date' },
+      { name: 'numeroProvisorio', description: 'Numeração provisória, se aplicável.', placeholder: 'Ex: PROV123', type: 'text' },
+      { name: 'numeroDefinitivo', description: 'Numeração definitiva (brinco).', placeholder: 'Ex: DEF456', type: 'text' },
+      { name: 'idPropriedadeNascimento', description: 'ID da propriedade onde o animal nasceu.', placeholder: 'Ex: 123', type: 'number' },
+      { name: 'idPropriedadeLocalizacao', description: 'ID da propriedade onde o animal se encontra.', placeholder: 'Ex: 123', type: 'number' },
+      { name: 'idPropriedadeResponsavel', description: 'ID da propriedade do responsável pelo animal.', placeholder: 'Ex: 123', type: 'number' },
+      { name: 'numeroSisbov', description: 'O número de identificação oficial do SISBOV.', placeholder: 'Ex: BR.0001.00000000001', type: 'text' },
+      { name: 'codigoRaca', description: 'Código da raça do animal.', placeholder: 'Ex: NELORE', type: 'text' },
+      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1', type: 'number' },
+      { name: 'sexo', description: 'Sexo do animal (M/F).', placeholder: 'Ex: M', type: 'select', options: ['M', 'F'] },
+      { name: 'cnpjProdutor', description: 'CNPJ do produtor responsável.', placeholder: 'Ex: 11222333000144', type: 'text' },
+      { name: 'cpfProdutor', description: 'CPF do produtor responsável.', placeholder: 'Ex: 11122233344', type: 'text' },
     ],
     exampleData: {
       dataIdentificacao: '01/01/2023',
@@ -140,6 +141,9 @@ function App() {
   const [requestXml, setRequestXml] = useState('');
   const [responseXml, setResponseXml] = useState('');
   const [loading, setLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState(null); // null, 'success', 'error'
+  const [responseFeedbackMessage, setResponseFeedbackMessage] = useState('');
+  const [codeSnippet, setCodeSnippet] = useState(''); // Novo estado para o snippet de código
 
   const handleOperationChange = (e) => {
     const operationKey = e.target.value;
@@ -176,11 +180,22 @@ function App() {
     return xml;
   };
 
+  // Nova função para gerar o snippet de código
+  const generateCodeSnippet = () => {
+    const currentOperationDetails = operations[selectedOperation];
+    const endpoint = currentOperationDetails.endpoint;
+    const paramsJson = JSON.stringify(params, null, 2);
+
+    const snippet = `// Exemplo de requisição usando Fetch API (JavaScript)\nconst endpoint = '${endpoint}';\nconst params = ${paramsJson};\n\nfetch(endpoint, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n  },\n  body: JSON.stringify(params),\n})\n.then(response => response.text())\n.then(data => {\n  console.log('Resposta do Mock Server:', data);\n  // Aqui você pode parsear o XML 'data' para extrair informações\n})\n.catch(error => {\n  console.error('Erro na requisição:', error);\n});`;
+    setCodeSnippet(snippet);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setResponseXml('Carregando...');
     generateRequestXml(); // Atualiza o estado requestXml
+    generateCodeSnippet(); // Gera o snippet de código
 
     const currentOperationDetails = operations[selectedOperation]; // Renomeado para evitar conflito/confusão
 
@@ -194,9 +209,37 @@ function App() {
       const data = await response.text();
       setResponseXml(data);
 
+      // Parsear o XML para extrair o status e mensagens de erro
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data, "text/xml");
+
+      const statusNode = xmlDoc.querySelector('status');
+      const status = statusNode ? parseInt(statusNode.textContent, 10) : -1; // -1 para indicar que não encontrou
+
+      if (status === 0) {
+        setResponseStatus('success');
+        setResponseFeedbackMessage('Operação realizada com sucesso!');
+      } else {
+        setResponseStatus('error');
+        let errorMessage = 'Erro na operação. Detalhes:\n';
+        const errorItems = xmlDoc.querySelectorAll('listaErros item');
+        if (errorItems.length > 0) {
+          errorItems.forEach(item => {
+            const codigoErro = item.querySelector('codigoErro')?.textContent || 'N/A';
+            const mensagemErro = item.querySelector('menssagemErro')?.textContent || 'N/A';
+            const valorInformado = item.querySelector('valorInformado item') ? ` (Valor: ${item.querySelector('valorInformado item').textContent})` : '';
+            errorMessage += `- Código: ${codigoErro}, Mensagem: ${mensagemErro}${valorInformado}\n`;
+          });
+        } else {
+          errorMessage += 'Nenhum detalhe de erro específico encontrado no XML.';
+        }
+        setResponseFeedbackMessage(errorMessage);
+      }
+
     } catch (error) {
       console.error('Erro ao chamar a função Netlify:', error);
-      setResponseXml(`// Erro na comunicação com a API de simulação.\n// Verifique o console do navegador para mais detalhes.\n${error.message}`);
+      setResponseStatus('error');
+      setResponseFeedbackMessage(`Erro na comunicação com a API de simulação. Verifique o console do navegador para mais detalhes: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -235,14 +278,28 @@ function App() {
                   {currentOperation.params.map(param => (
                     <div className="input-group mb-2" key={param.name}>
                        <span className="input-group-text" style={{minWidth: '120px'}}>{param.name}</span>
-                       <input
-                        type="text"
-                        name={param.name}
-                        className="form-control"
-                        value={params[param.name] || ''}
-                        onChange={handleParamChange}
-                        placeholder={param.placeholder}
-                      />
+                       {param.type === 'select' ? (
+                         <select
+                           name={param.name}
+                           className="form-select"
+                           value={params[param.name] || ''}
+                           onChange={handleParamChange}
+                         >
+                           <option value="">Selecione...</option>
+                           {param.options.map(option => (
+                             <option key={option} value={option}>{option}</option>
+                           ))}
+                         </select>
+                       ) : (
+                         <input
+                           type={param.type || 'text'}
+                           name={param.name}
+                           className="form-control"
+                           value={params[param.name] || ''}
+                           onChange={handleParamChange}
+                           placeholder={param.placeholder}
+                         />
+                       )}
                       <OverlayTrigger
                         placement="right"
                         delay={{ show: 250, hide: 400 }}
@@ -294,7 +351,23 @@ function App() {
                 placeholder="A requisição SOAP/XML aparecerá aqui após o preenchimento dos parâmetros."
               />
             </div>
+            <div className="col-12 mb-3">
+              <label htmlFor="code-snippet" className="form-label">Snippet de Código (JavaScript)</label>
+              <textarea
+                id="code-snippet"
+                className="form-control"
+                rows="10"
+                readOnly
+                value={codeSnippet}
+                placeholder="O snippet de código para esta requisição aparecerá aqui."
+              />
+            </div>
             <div className="col-12">
+              {responseFeedbackMessage && (
+                <div className={`alert ${responseStatus === 'success' ? 'alert-success' : 'alert-danger'}`} role="alert">
+                  {responseFeedbackMessage}
+                </div>
+              )}
               <label htmlFor="response-xml" className="form-label">Resposta XML do Mock Server</label>
               <textarea
                 id="response-xml"
