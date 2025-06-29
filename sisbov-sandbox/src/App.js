@@ -1,36 +1,135 @@
 import React, { useState } from 'react';
+import { OverlayTrigger, Popover, Button } from 'react-bootstrap'; // Importar componentes do react-bootstrap
 
-// Um objeto para definir as operações que vamos suportar
 const operations = {
   consultarDadosAnimal: {
     name: 'Consultar Dados do Animal',
     description: 'Busca os dados de um animal específico pelo seu número SISBOV.',
-    params: ['numeroSisbov'],
-    endpoint: '/.netlify/functions/consultar-animal'
+    params: [
+      {
+        name: 'numeroSisbov',
+        description: 'O número de identificação SISBOV do animal (15 dígitos).',
+        placeholder: 'Ex: 123456789012345 (sucesso) ou 999999999999999 (erro)',
+      },
+    ],
+    exampleData: {
+      numeroSisbov: '123456789012345', // Exemplo de sucesso
+    },
+    endpoint: '/.netlify/functions/consultar-animal',
   },
   incluirPropriedade: {
     name: 'Incluir Propriedade',
-    description: 'Cadastra uma nova propriedade rural no sistema SISBOV.',
-    params: ['_nirf', '_incra', '_tipoPropriedade', '_nomePropriedade', '_area', '_logradouro', '_bairro', '_cep', '_codMunicipio'],
-    endpoint: '/.netlify/functions/incluir-propriedade'
+    description: 'Cadastra uma nova propriedade rural no sistema SISBOV. Use NIRF 123 para simular um erro.',
+    params: [
+      { name: '_nirf', description: 'Número do Imóvel na Receita Federal.', placeholder: 'Ex: 12345678901 (sucesso) ou 123 (erro)' },
+      { name: '_incra', description: 'Código INCRA da propriedade.', placeholder: 'Ex: 123456789012' },
+      { name: '_tipoPropriedade', description: 'Tipo da propriedade (código numérico).', placeholder: 'Ex: 1' },
+      { name: '_nomePropriedade', description: 'Nome da fazenda.', placeholder: 'Ex: Fazenda Modelo' },
+      { name: '_area', description: 'Área total da propriedade em hectares.', placeholder: 'Ex: 1000' },
+      { name: '_logradouro', description: 'Endereço da propriedade.', placeholder: 'Ex: Rua Principal, 123' },
+      { name: '_bairro', description: 'Bairro da propriedade.', placeholder: 'Ex: Centro' },
+      { name: '_cep', description: 'CEP da propriedade.', placeholder: 'Ex: 70000000' },
+      { name: '_codMunicipio', description: 'Código do município (IBGE).', placeholder: 'Ex: 5300108' },
+    ],
+    exampleData: {
+      _nirf: '12345678901',
+      _incra: '123456789012',
+      _tipoPropriedade: '1',
+      _nomePropriedade: 'Fazenda Exemplo',
+      _area: '1000',
+      _logradouro: 'Rua das Flores, 10',
+      _bairro: 'Jardim',
+      _cep: '70000000',
+      _codMunicipio: '5300108',
+    },
+    endpoint: '/.netlify/functions/incluir-propriedade',
   },
   movimentarAnimal: {
     name: 'Movimentar Animal',
-    description: 'Registra a movimentação de animais entre propriedades.',
-    params: ['dataValidade', 'dataEmissao', 'dataSaida', 'dataChegada', 'idPropriedadeOrigem', 'cpfProdutorOrigem', 'cnpjProdutorOrigem', 'idPropriedadeDestino', 'cpfProdutorDestino', 'cnpjProdutorDestino', 'numerosSISBOV'], // Simplificado para o mock
-    endpoint: '/.netlify/functions/movimentar-animal'
+    description: 'Registra a movimentação de animais entre propriedades. Use idPropriedadeOrigem 99999 para simular um erro.',
+    params: [
+      { name: 'dataValidade', description: 'Data de validade da GTA (dd/MM/yyyy).', placeholder: 'Ex: 30/06/2025' },
+      { name: 'dataEmissao', description: 'Data de emissão da GTA (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
+      { name: 'dataSaida', description: 'Data de saída dos animais da origem (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
+      { name: 'dataChegada', description: 'Data de chegada dos animais ao destino (dd/MM/yyyy).', placeholder: 'Ex: 29/06/2025' },
+      { name: 'idPropriedadeOrigem', description: 'ID da propriedade de origem. Use 123 para sucesso, 99999 para erro.', placeholder: 'Ex: 123 (sucesso) ou 99999 (erro)' },
+      { name: 'cpfProdutorOrigem', description: 'CPF do produtor de origem.', placeholder: 'Ex: 11122233344' },
+      { name: 'cnpjProdutorOrigem', description: 'CNPJ do produtor de origem.', placeholder: 'Ex: 11222333000144' },
+      { name: 'idPropriedadeDestino', description: 'ID da propriedade de destino.', placeholder: 'Ex: 456' },
+      { name: 'cpfProdutorDestino', description: 'CPF do produtor de destino.', placeholder: 'Ex: 55566677788' },
+      { name: 'cnpjProdutorDestino', description: 'CNPJ do produtor de destino.', placeholder: 'Ex: 55666777000188' },
+      { name: 'numerosSISBOV', description: 'Lista de números SISBOV dos animais, separados por vírgula.', placeholder: 'Ex: BR.0001.00000000001,BR.0001.00000000002' },
+    ],
+    exampleData: {
+      dataValidade: '30/06/2025',
+      dataEmissao: '29/06/2025',
+      dataSaida: '29/06/2025',
+      dataChegada: '29/06/2025',
+      idPropriedadeOrigem: '123',
+      cpfProdutorOrigem: '11122233344',
+      cnpjProdutorOrigem: '11222333000144',
+      idPropriedadeDestino: '456',
+      cpfProdutorDestino: '55566677788',
+      cnpjProdutorDestino: '55666777000188',
+      numerosSISBOV: 'BR.0001.00000000001,BR.0001.00000000002',
+    },
+    endpoint: '/.netlify/functions/movimentar-animal',
   },
   solicitarNumeracao: {
     name: 'Solicitar Numeração',
-    description: 'Solicita um lote de números de identificação (brincos) ao SISBOV.',
-    params: ['cnpjFabrica', 'cpfProdutor', 'cnpjProdutor', 'idPropriedade', 'qtdeSolicitada', 'tipoIdentificacao'],
-    endpoint: '/.netlify/functions/solicitar-numeracao'
+    description: 'Solicita um lote de números de identificação (brincos) ao SISBOV. Use qtdeSolicitada fora do range 1-100 para simular um erro.',
+    params: [
+      { name: 'cnpjFabrica', description: 'CNPJ da fábrica de brincos.', placeholder: 'Ex: 00111222000133' },
+      { name: 'cpfProdutor', description: 'CPF do produtor que receberá os brincos.', placeholder: 'Ex: 11122233344' },
+      { name: 'cnpjProdutor', description: 'CNPJ do produtor que receberá os brincos.', placeholder: 'Ex: 11222333000144' },
+      { name: 'idPropriedade', description: 'ID da propriedade onde os brincos serão utilizados.', placeholder: 'Ex: 123' },
+      { name: 'qtdeSolicitada', description: 'Quantidade de números desejada (entre 1 e 100 para sucesso).', placeholder: 'Ex: 10 (sucesso) ou 0 (erro)' },
+      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1' },
+    ],
+    exampleData: {
+      cnpjFabrica: '00111222000133',
+      cpfProdutor: '11122233344',
+      cnpjProdutor: '11222333000144',
+      idPropriedade: '123',
+      qtdeSolicitada: '10',
+      tipoIdentificacao: '1',
+    },
+    endpoint: '/.netlify/functions/solicitar-numeracao',
   },
   incluirAnimal: {
     name: 'Incluir Animal',
-    description: 'Registra um novo animal no sistema SISBOV.',
-    params: ['dataIdentificacao', 'dataNascimento', 'numeroProvisorio', 'numeroDefinitivo', 'idPropriedadeNascimento', 'idPropriedadeLocalizacao', 'idPropriedadeResponsavel', 'numeroSisbov', 'codigoRaca', 'tipoIdentificacao', 'sexo', 'cnpjProdutor', 'cpfProdutor'],
-    endpoint: '/.netlify/functions/incluir-animal'
+    description: 'Registra um novo animal nascido no Brasil. Use dataNascimento 30/02/2023 para simular um erro.',
+    params: [
+      { name: 'dataIdentificacao', description: 'Data em que o animal foi identificado (dd/MM/yyyy).', placeholder: 'Ex: 01/01/2023' },
+      { name: 'dataNascimento', description: 'Data de nascimento do animal (dd/MM/yyyy). Use 30/02/2023 para erro.', placeholder: 'Ex: 15/12/2022 (sucesso) ou 30/02/2023 (erro)' },
+      { name: 'numeroProvisorio', description: 'Numeração provisória, se aplicável.', placeholder: 'Ex: PROV123' },
+      { name: 'numeroDefinitivo', description: 'Numeração definitiva (brinco).', placeholder: 'Ex: DEF456' },
+      { name: 'idPropriedadeNascimento', description: 'ID da propriedade onde o animal nasceu.', placeholder: 'Ex: 123' },
+      { name: 'idPropriedadeLocalizacao', description: 'ID da propriedade onde o animal se encontra.', placeholder: 'Ex: 123' },
+      { name: 'idPropriedadeResponsavel', description: 'ID da propriedade do responsável pelo animal.', placeholder: 'Ex: 123' },
+      { name: 'numeroSisbov', description: 'O número de identificação oficial do SISBOV.', placeholder: 'Ex: BR.0001.00000000001' },
+      { name: 'codigoRaca', description: 'Código da raça do animal.', placeholder: 'Ex: NELORE' },
+      { name: 'tipoIdentificacao', description: 'Código do tipo de identificação (Ex: 1 para brinco).', placeholder: 'Ex: 1' },
+      { name: 'sexo', description: 'Sexo do animal (M/F).', placeholder: 'Ex: M' },
+      { name: 'cnpjProdutor', description: 'CNPJ do produtor responsável.', placeholder: 'Ex: 11222333000144' },
+      { name: 'cpfProdutor', description: 'CPF do produtor responsável.', placeholder: 'Ex: 11122233344' },
+    ],
+    exampleData: {
+      dataIdentificacao: '01/01/2023',
+      dataNascimento: '15/12/2022',
+      numeroProvisorio: 'PROV123',
+      numeroDefinitivo: 'DEF456',
+      idPropriedadeNascimento: '123',
+      idPropriedadeLocalizacao: '123',
+      idPropriedadeResponsavel: '123',
+      numeroSisbov: 'BR.0001.00000000001',
+      codigoRaca: 'NELORE',
+      tipoIdentificacao: '1',
+      sexo: 'M',
+      cnpjProdutor: '11222333000144',
+      cpfProdutor: '11122233344',
+    },
+    endpoint: '/.netlify/functions/incluir-animal',
   },
   // Adicione outras operações aqui no futuro
 };
@@ -58,6 +157,13 @@ function App() {
   const handleParamChange = (e) => {
     const { name, value } = e.target;
     setParams(prevParams => ({ ...prevParams, [name]: value }));
+  };
+
+  const handleFillExample = () => {
+    const currentOperationDetails = operations[selectedOperation];
+    if (currentOperationDetails.exampleData) {
+      setParams(currentOperationDetails.exampleData);
+    }
   };
 
   const generateRequestXml = () => {
@@ -96,7 +202,7 @@ function App() {
     }
   };
 
-  const currentOperation = operations[selectedOperation];
+  const currentOperation = operations[selectedOperation};
 
   return (
     <div className="container mt-4">
@@ -127,19 +233,43 @@ function App() {
                 <div className="mb-3">
                   <label className="form-label">2. Preencha os Parâmetros</label>
                   {currentOperation.params.map(param => (
-                    <div className="input-group mb-2" key={param}>
-                       <span className="input-group-text" style={{minWidth: '120px'}}>{param}</span>
+                    <div className="input-group mb-2" key={param.name}>
+                       <span className="input-group-text" style={{minWidth: '120px'}}>{param.name}</span>
                        <input
                         type="text"
-                        name={param}
+                        name={param.name}
                         className="form-control"
-                        value={params[param] || ''}
+                        value={params[param.name] || ''}
                         onChange={handleParamChange}
-                        placeholder={`Valor para ${param}`}
+                        placeholder={param.placeholder}
                       />
+                      <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={(
+                          <Popover id={`popover-${param.name}`}>
+                            <Popover.Header as="h3">{param.name}</Popover.Header>
+                            <Popover.Body>
+                              {param.description}
+                            </Popover.Body>
+                          </Popover>
+                        )}
+                      >
+                        <Button variant="outline-secondary" className="btn-sm">
+                          <i className="bi bi-info-circle"></i>
+                        </Button>
+                      </OverlayTrigger>
                     </div>
                   ))}
                 </div>
+
+                {currentOperation.exampleData && (
+                  <div className="mb-3 d-grid">
+                    <Button variant="outline-info" onClick={handleFillExample}>
+                      Preencher com Dados de Exemplo
+                    </Button>
+                  </div>
+                )}
 
                 <div className="d-grid">
                   <button type="submit" className="btn btn-primary" disabled={loading}>
