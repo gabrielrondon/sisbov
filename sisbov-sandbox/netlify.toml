@@ -8,6 +8,10 @@
   # Diretório onde as nossas funções serverless estão
   functions = "netlify/functions"
 
+[functions]
+  # Incluir a pasta api-examples no bundle das funções
+  included_files = ["./netlify/functions/api-examples/**"]
+
 # Redirecionamento para que nossa aplicação React lide com as rotas
 [[redirects]]
   from = "/*"
