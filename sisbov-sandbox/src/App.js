@@ -202,7 +202,7 @@ function App() {
     }
   };
 
-  const currentOperation = operations[selectedOperation};
+  const currentOperation = operations[selectedOperation];
 
   return (
     <div className="container mt-4">
