@@ -10,7 +10,16 @@ const readDb = () => {
     return JSON.parse(data);
   } catch (error) {
     console.error('Erro ao ler db.json:', error);
-    return { animais: [], propriedades: [], proprietarios: [] };
+    return { animais: [], propriedades: [], proprietarios: [], numeracoes: [], tabelas: {} };
+  }
+};
+
+// Função auxiliar para escrever no DB
+const writeDb = (data) => {
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
+  } catch (error) {
+    console.error('Erro ao escrever db.json:', error);
   }
 };
 
@@ -25,10 +34,27 @@ exports.handler = async (event, context) => {
     let xmlContent;
     let filePath;
 
+    const db = readDb();
+    const tabelaData = db.tabelas[idTabela];
+
     // Lógica de simulação para recuperarTabela
     // idTabela = 2 para raças (sucesso)
     // idTabela = 999 para erro
-    if (idTabela == 2) {
+    if (tabelaData) {
+      filePath = path.join(process.cwd(), 'api-examples', 'recuperarTabela_response_success.xml');
+      xmlContent = fs.readFileSync(filePath, 'utf8');
+      
+      let registrosXmlItems = '';
+      tabelaData.forEach(item => {
+        registrosXmlItems += `
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigo>${item.codigo}</ns2:codigo>
+            <ns2:descricao>${item.descricao}</ns2:descricao>
+          </item>`;
+      });
+      xmlContent = xmlContent.replace('<ns1:registros>', `<ns1:registros>${registrosXmlItems}`);
+
+    } else if (idTabela == 2) {
       filePath = path.join(process.cwd(), 'api-examples', 'recuperarTabela_response_success.xml');
     } else {
       filePath = path.join(process.cwd(), 'api-examples', 'recuperarTabela_response_error.xml');

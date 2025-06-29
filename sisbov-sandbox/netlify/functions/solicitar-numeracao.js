@@ -10,7 +10,7 @@ const readDb = () => {
     return JSON.parse(data);
   } catch (error) {
     console.error('Erro ao ler db.json:', error);
-    return { animais: [], propriedades: [] }; // Retorna estrutura vazia em caso de erro
+    return { animais: [], propriedades: [], proprietarios: [], numeracoes: [] }; // Retorna estrutura vazia em caso de erro
   }
 };
 
@@ -39,6 +39,45 @@ exports.handler = async (event, context) => {
     // Retorna erro caso contrário
     if (qtdeSolicitada >= 1 && qtdeSolicitada <= 100) {
       filePath = path.join(process.cwd(), 'api-examples', 'solicitarNumeracao_response_success.xml');
+      
+      const db = readDb();
+      const lastSolicitacaoId = db.numeracoes.length > 0 ? Math.max(...db.numeracoes.map(n => n.numeroSolicitacao)) : 10000;
+      const newSolicitacaoId = lastSolicitacaoId + 1;
+
+      let lastSisbovNum = 0;
+      if (db.numeracoes.length > 0) {
+        const allGeneratedNumbers = db.numeracoes.flatMap(n => n.numeros);
+        if (allGeneratedNumbers.length > 0) {
+          const lastNumStr = allGeneratedNumbers[allGeneratedNumbers.length - 1].numero;
+          lastSisbovNum = parseInt(lastNumStr.split('.')[2], 10);
+        }
+      }
+
+      const generatedNumbers = [];
+      let numeracaoXmlItems = '';
+      for (let i = 0; i < qtdeSolicitada; i++) {
+        const sisbovNum = `BR.0001.${String(lastSisbovNum + 1 + i).padStart(11, '0')}`;
+        generatedNumbers.push({ numero: sisbovNum, statusUtilizacao: 'DISPONIVEL' });
+        numeracaoXmlItems += `
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:numero>${sisbovNum}</ns2:numero>
+            <ns2:statusUtilizacao>DISPONIVEL</ns2:statusUtilizacao>
+          </item>`;
+      }
+
+      db.numeracoes.push({
+        numeroSolicitacao: newSolicitacaoId,
+        qtdeSolicitada: qtdeSolicitada,
+        numeros: generatedNumbers,
+        status: 'CONCLUIDA',
+        dataSolicitacao: new Date().toISOString().split('T')[0],
+      });
+      writeDb(db);
+
+      xmlContent = fs.readFileSync(filePath, 'utf8');
+      xmlContent = xmlContent.replace('<ns1:numeracao>', `<ns1:numeracao>${numeracaoXmlItems}`);
+      xmlContent = xmlContent.replace('<ns1:numeroSolicitacao>12345</ns1:numeroSolicitacao>', `<ns1:numeroSolicitacao>${newSolicitacaoId}</ns1:numeroSolicitacao>`);
+
     } else {
       filePath = path.join(process.cwd(), 'api-examples', 'solicitarNumeracao_response_error.xml');
     }
