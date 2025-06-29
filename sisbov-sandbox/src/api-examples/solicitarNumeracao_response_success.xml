@@ -1,0 +1,25 @@
+<!-- Resposta de sucesso para solicitarNumeracao -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:solicitarNumeracaoResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:solicitarNumeracaoReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>987654321</ns1:idTransacao>
+        <ns1:listaErros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:status>0</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:numeracao>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:numero>BR.0001.00000000001</ns2:numero>
+            <ns2:statusUtilizacao>DISPONIVEL</ns2:statusUtilizacao>
+          </item>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:numero>BR.0001.00000000002</ns2:numero>
+            <ns2:statusUtilizacao>DISPONIVEL</ns2:statusUtilizacao>
+          </item>
+        </ns1:numeracao>
+        <ns1:numeroSolicitacao>12345</ns1:numeroSolicitacao>
+      </ns0:solicitarNumeracaoReturn>
+    </ns0:solicitarNumeracaoResponse>
+</soap:Envelope>

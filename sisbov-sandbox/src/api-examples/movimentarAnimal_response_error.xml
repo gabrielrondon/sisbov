@@ -1,0 +1,30 @@
+<!-- Resposta de erro para movimentarAnimal -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:movimentarAnimalResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:movimentarAnimalReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>9988776655</ns1:idTransacao>
+        <ns1:listaErros>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigoErro>MOV-001</ns2:codigoErro>
+            <ns2:menssagemErro>Propriedade de origem inválida ou não certificada.</ns2:menssagemErro>
+            <ns2:pilhaDeErro xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <ns2:valorInformado>
+                <item>idPropriedadeOrigem</item>
+                <item>99999</item>
+            </ns2:valorInformado>
+          </item>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigoErro>MOV-002</ns2:codigoErro>
+            <ns2:menssagemErro>Pelo menos um número SISBOV é obrigatório.</ns2:menssagemErro>
+            <ns2:pilhaDeErro xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <ns2:valorInformado xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+          </item>
+        </ns1:listaErros>
+        <ns1:status>1</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </ns0:movimentarAnimalReturn>
+    </ns0:movimentarAnimalResponse>
+</soap:Envelope>

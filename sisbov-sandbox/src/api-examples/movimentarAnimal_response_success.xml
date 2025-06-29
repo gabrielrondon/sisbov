@@ -1,0 +1,14 @@
+<!-- Resposta de sucesso para movimentarAnimal -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:movimentarAnimalResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:movimentarAnimalReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        <ns1:ambiente>HOMOLOGACAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>1122334455</ns1:idTransacao>
+        <ns1:listaErros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:status>0</ns1:status>
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </ns0:movimentarAnimalReturn>
+    </ns0:movimentarAnimalResponse>
+</soap:Envelope>

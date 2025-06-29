@@ -8,6 +8,30 @@ const operations = {
     params: ['numeroSisbov'],
     endpoint: '/.netlify/functions/consultar-animal'
   },
+  incluirPropriedade: {
+    name: 'Incluir Propriedade',
+    description: 'Cadastra uma nova propriedade rural no sistema SISBOV.',
+    params: ['_nirf', '_incra', '_tipoPropriedade', '_nomePropriedade', '_area', '_logradouro', '_bairro', '_cep', '_codMunicipio'],
+    endpoint: '/.netlify/functions/incluir-propriedade'
+  },
+  movimentarAnimal: {
+    name: 'Movimentar Animal',
+    description: 'Registra a movimentação de animais entre propriedades.',
+    params: ['dataValidade', 'dataEmissao', 'dataSaida', 'dataChegada', 'idPropriedadeOrigem', 'cpfProdutorOrigem', 'cnpjProdutorOrigem', 'idPropriedadeDestino', 'cpfProdutorDestino', 'cnpjProdutorDestino', 'numerosSISBOV'], // Simplificado para o mock
+    endpoint: '/.netlify/functions/movimentar-animal'
+  },
+  solicitarNumeracao: {
+    name: 'Solicitar Numeração',
+    description: 'Solicita um lote de números de identificação (brincos) ao SISBOV.',
+    params: ['cnpjFabrica', 'cpfProdutor', 'cnpjProdutor', 'idPropriedade', 'qtdeSolicitada', 'tipoIdentificacao'],
+    endpoint: '/.netlify/functions/solicitar-numeracao'
+  },
+  incluirAnimal: {
+    name: 'Incluir Animal',
+    description: 'Registra um novo animal no sistema SISBOV.',
+    params: ['dataIdentificacao', 'dataNascimento', 'numeroProvisorio', 'numeroDefinitivo', 'idPropriedadeNascimento', 'idPropriedadeLocalizacao', 'idPropriedadeResponsavel', 'numeroSisbov', 'codigoRaca', 'tipoIdentificacao', 'sexo', 'cnpjProdutor', 'cpfProdutor'],
+    endpoint: '/.netlify/functions/incluir-animal'
+  },
   // Adicione outras operações aqui no futuro
 };
 
@@ -51,9 +75,9 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setResponseXml('Carregando...');
-    const requestXml = generateRequestXml();
+    generateRequestXml(); // Atualiza o estado requestXml
 
-    const operation = operations[selectedOperation];
+    const currentOperationDetails = operations[selectedOperation]; // Renomeado para evitar conflito/confusão
 
     try {
       const response = await fetch(operation.endpoint, {
