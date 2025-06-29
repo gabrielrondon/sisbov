@@ -61,7 +61,6 @@ function App() {
   };
 
   const generateRequestXml = () => {
-    const operation = operations[selectedOperation];
     const paramXml = Object.entries(params)
       .map(([key, value]) => `<ns0:${key}>${value || ''}</ns0:${key}>`)
       .join('\n      ');
