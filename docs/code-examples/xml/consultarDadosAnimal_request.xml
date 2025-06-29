@@ -1,0 +1,20 @@
+<!-- 
+Este é um exemplo do envelope SOAP e do XML que o cliente (como o script Python com Zeep)
+construiria e enviaria para o servidor do SISBOV para executar a operação 'consultarDadosAnimal'.
+
+Isto é extremamente útil para entender a estrutura da comunicação e para depurar problemas.
+-->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:consultarDadosAnimal xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      
+      <!-- Credenciais de Acesso -->
+      <ns0:usuario>seu_usuario_aqui</ns0:usuario>
+      <ns0:senha>sua_senha_aqui</ns0:senha>
+      
+      <!-- Parâmetro Principal da Operação -->
+      <ns0:numeroSisbov>123456789012345</ns0:numeroSisbov>
+
+    </ns0:consultarDadosAnimal>
+  </soap:Body>
+</soap:Envelope>

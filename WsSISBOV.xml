@@ -1,0 +1,4977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://servicosWeb.sisbov.mapa.gov.br" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns3="http://persistence.serpro.gov.br" xmlns:impl="http://servicosWeb.sisbov.mapa.gov.br" xmlns:intf="http://servicosWeb.sisbov.mapa.gov.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://model.sisbov.mapa.gov.br" xmlns:tns5="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br" xmlns:tns4="http://tipos.model.sisbov.mapa.gov.br" xmlns:tns1="http://retorno.servicosWeb.sisbov.mapa.gov.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<!--WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://servicosWeb.sisbov.mapa.gov.br" elementFormDefault="qualified">
+   <import namespace="http://persistence.serpro.gov.br"/>
+   <import namespace="http://model.sisbov.mapa.gov.br"/>
+   <import namespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br"/>
+   <import namespace="http://retorno.servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://tipos.model.sisbov.mapa.gov.br"/>
+   <element name="recuperarTabela">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idTabela" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarTabelaResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarTabelaReturn" type="tns1:RetornoRecuperarTabela"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_string">
+    <sequence>
+     <element name="item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_Erro">
+    <sequence>
+     <element name="item" type="tns2:Erro" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_RegistroTabelaDominio">
+    <sequence>
+     <element name="item" type="tns2:RegistroTabelaDominio" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="recuperarTabelaMunicipios">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="uf" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarTabelaMunicipiosResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarTabelaMunicipiosReturn" type="tns1:RetornoRecuperarTabela"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarVinculoMorteCausa">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="tipoMorte" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarVinculoMorteCausaResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarVinculoMorteCausaReturn" type="tns1:RetornoConsultarVinculoMorteCausa"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns4_TipoMorteCausa">
+    <sequence>
+     <element name="item" type="tns4:TipoMorteCausa" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="incluirProprietario">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_razaoSocial" type="xsd:string"/>
+      <element name="_cnpj" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirProprietarioResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirProprietarioReturn" type="tns1:RetornoIncluirProprietario"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarProprietario">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_razaoSocial" type="xsd:string"/>
+      <element name="_cnpj" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarProprietarioResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarProprietarioReturn" type="tns1:RetornoAlterarProprietario"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirProdutor">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_razaoSocial" type="xsd:string"/>
+      <element name="_cnpj" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+      <element name="_telefoneResidencial" type="xsd:string"/>
+      <element name="_faxResidencial" type="xsd:string"/>
+      <element name="_nrTelefoneContato" type="xsd:string"/>
+      <element name="_nrFaxContato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirProdutorResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirProdutorReturn" type="tns1:RetornoIncluirProdutor"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarProdutor">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_razaoSocial" type="xsd:string"/>
+      <element name="_cnpj" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+      <element name="_telefoneResidencial" type="xsd:string"/>
+      <element name="_faxResidencial" type="xsd:string"/>
+      <element name="_nrTelefoneContato" type="xsd:string"/>
+      <element name="_nrFaxContato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarProdutorResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarProdutorReturn" type="tns1:RetornoAlterarProdutor"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirSupervisor">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_rg" type="xsd:string"/>
+      <element name="_dataNascimento" type="xsd:string"/>
+      <element name="_dataExpedicao" type="xsd:string"/>
+      <element name="_OrgaoExpedidor" type="xsd:string"/>
+      <element name="_ufExpedidor" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirSupervisorResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirSupervisorReturn" type="tns1:RetornoIncluirSupervisor"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSupervisor">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_nome" type="xsd:string"/>
+      <element name="_telefone" type="xsd:string"/>
+      <element name="_email" type="xsd:string"/>
+      <element name="_cpf" type="xsd:string"/>
+      <element name="_rg" type="xsd:string"/>
+      <element name="_dataNascimento" type="xsd:string"/>
+      <element name="_dataExpedicao" type="xsd:string"/>
+      <element name="_OrgaoExpedidor" type="xsd:string"/>
+      <element name="_ufExpedidor" type="xsd:string"/>
+      <element name="_sexo" type="xsd:string"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSupervisorResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarSupervisorReturn" type="tns1:RetornoAlterarSupervisor"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarPropriedadeReturn" type="tns1:RetornoConsultarPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_nirf" type="xsd:string"/>
+      <element name="_incra" type="xsd:string"/>
+      <element name="_tipoPropriedade" type="xsd:long"/>
+      <element name="_nomePropriedade" type="xsd:string"/>
+      <element name="_acessoFazenda" type="xsd:string"/>
+      <element name="_distanciaSedeMunicipio" type="xsd:int"/>
+      <element name="_orientacaoLatitude" type="xsd:string"/>
+      <element name="_grauLatitude" type="xsd:int"/>
+      <element name="_minutoLatitude" type="xsd:int"/>
+      <element name="_segundoLatitude" type="xsd:int"/>
+      <element name="_orientacaoLongitude" type="xsd:string"/>
+      <element name="_grauLongitude" type="xsd:int"/>
+      <element name="_minutoLongitude" type="xsd:int"/>
+      <element name="_segundoLongitude" type="xsd:int"/>
+      <element name="_area" type="xsd:long"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaLogradouro" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaBairro" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaCep" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaCodMunicipio" type="xsd:string"/>
+      <element name="_telefoneResidencial" type="xsd:string"/>
+      <element name="_faxResidencial" type="xsd:string"/>
+      <element name="_nrTelefoneContato" type="xsd:string"/>
+      <element name="_nrFaxContato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirPropriedadeReturn" type="tns1:RetornoIncluirPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="_nirf" type="xsd:string"/>
+      <element name="_incra" type="xsd:string"/>
+      <element name="_tipoPropriedade" type="xsd:long"/>
+      <element name="_nomePropriedade" type="xsd:string"/>
+      <element name="_acessoFazenda" type="xsd:string"/>
+      <element name="_distanciaSedeMunicipio" type="xsd:int"/>
+      <element name="_orientacaoLatitude" type="xsd:string"/>
+      <element name="_grauLatitude" type="xsd:int"/>
+      <element name="_minutoLatitude" type="xsd:int"/>
+      <element name="_segundoLatitude" type="xsd:int"/>
+      <element name="_orientacaoLongitude" type="xsd:string"/>
+      <element name="_grauLongitude" type="xsd:int"/>
+      <element name="_minutoLongitude" type="xsd:int"/>
+      <element name="_segundoLongitude" type="xsd:int"/>
+      <element name="_area" type="xsd:long"/>
+      <element name="_logradouro" type="xsd:string"/>
+      <element name="_bairro" type="xsd:string"/>
+      <element name="_cep" type="xsd:string"/>
+      <element name="_codMunicipio" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaLogradouro" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaBairro" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaCep" type="xsd:string"/>
+      <element name="_enderecoCorrespondenciaCodMunicipio" type="xsd:string"/>
+      <element name="_telefoneResidencial" type="xsd:string"/>
+      <element name="_faxResidencial" type="xsd:string"/>
+      <element name="_nrTelefoneContato" type="xsd:string"/>
+      <element name="_nrFaxContato" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarPropriedadeReturn" type="tns1:RetornoAlterarPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularProprietarioPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfProprietario" type="xsd:string"/>
+      <element name="cnpjProprietario" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="situacaoFundiaria" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularProprietarioPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="vincularProprietarioPropriedadeReturn" type="tns1:RetornoVincularProprietarioPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="desvincularProdutorPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="desvincularProdutorPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="desvincularProdutorPropriedadeReturn" type="tns1:RetornoDesvincularProdutorPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="desvincularPropriedadeProprietario">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfProprietario" type="xsd:string"/>
+      <element name="cnpjProprietario" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="desvincularPropriedadeProprietarioResponse">
+    <complexType>
+     <sequence>
+      <element name="desvincularPropriedadeProprietarioReturn" type="tns1:RetornoDesvincularProprietarioPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularProdutorPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="IEProdutor" type="xsd:string"/>
+      <element name="ufIE" type="xsd:string"/>
+      <element name="tipoProdutor" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularProdutorPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="vincularProdutorPropriedadeReturn" type="tns1:RetornoVincularProdutorPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirVistoriaERAS">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfSupervisor" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="data" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirVistoriaERASResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirVistoriaERASReturn" type="tns1:RetornoIncluirVistoriaERAS"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cnpjFabrica" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="qtdeSolicitada" type="xsd:long"/>
+      <element name="tipoIdentificacao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="solicitarNumeracaoReturn" type="tns1:RetornoSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_NumeroSimplificado">
+    <sequence>
+     <element name="item" type="tns2:NumeroSimplificado" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="solicitarNumeracaoReimpressao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cnpjFabrica" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="qtd" type="xsd:int"/>
+      <element name="numero" type="tns2:NumeroReimpressaoDTO" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarNumeracaoReimpressaoResponse">
+    <complexType>
+     <sequence>
+      <element name="solicitarNumeracaoReimpressaoReturn" type="tns1:RetornoSolicitacaoNumeracaoReimpressao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarNumeracaoReturn" type="tns1:RetornoRecuperarNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaSolicitacaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultaSolicitacaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultaSolicitacaoNumeracaoReturn" type="tns1:RetornoConsultaSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarNumeracaoReimpressao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarNumeracaoReimpressaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarNumeracaoReimpressaoReturn" type="tns1:RetornoConsultarNumeracaoReimpressao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_NumeroSimplificadoReimpressao">
+    <sequence>
+     <element name="item" type="tns2:NumeroSimplificadoReimpressao" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="incluirAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataIdentificacao" type="xsd:string"/>
+      <element name="dataNascimento" type="xsd:string"/>
+      <element name="numeroProvisorio" type="xsd:string"/>
+      <element name="numeroDefinitivo" type="xsd:string"/>
+      <element name="idPropriedadeNascimento" type="xsd:long"/>
+      <element name="idPropriedadeLocalizacao" type="xsd:long"/>
+      <element name="idPropriedadeResponsavel" type="xsd:long"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+      <element name="codigoRaca" type="xsd:string"/>
+      <element name="tipoIdentificacao" type="xsd:long"/>
+      <element name="sexo" type="xsd:string"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirAnimalReturn" type="tns1:RetornoIncluirAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirAnimalImportado">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="codigoRaca" type="xsd:string"/>
+      <element name="nome" type="xsd:string"/>
+      <element name="codPais" type="xsd:string"/>
+      <element name="registroAssociacao" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+      <element name="numeroProvisorio" type="xsd:string"/>
+      <element name="numeroDefinitivo" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="anoImportacao" type="xsd:int"/>
+      <element name="dataEntradaPais" type="xsd:string"/>
+      <element name="dataNascimento" type="xsd:string"/>
+      <element name="dataNascimentoEstimada" type="xsd:string"/>
+      <element name="sexo" type="xsd:string"/>
+      <element name="dataIdentificacao" type="xsd:string"/>
+      <element name="tipoIdentificacao" type="xsd:int"/>
+      <element name="obs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluirAnimalImportadoResponse">
+    <complexType>
+     <sequence>
+      <element name="incluirAnimalImportadoReturn" type="tns1:RetornoIncluirAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarAnimalImportado">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="nome" type="xsd:string"/>
+      <element name="registroAssociacao" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+      <element name="numeroProvisorio" type="xsd:string"/>
+      <element name="numeroDefinitivo" type="xsd:string"/>
+      <element name="sexo" type="xsd:string"/>
+      <element name="dataIdentificacao" type="xsd:string"/>
+      <element name="obs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarAnimalImportadoResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarAnimalImportadoReturn" type="tns1:RetornoAlterarAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataIdentificacao" type="xsd:string"/>
+      <element name="dataNascimento" type="xsd:string"/>
+      <element name="numeroProvisorio" type="xsd:string"/>
+      <element name="numeroDefinitivo" type="xsd:string"/>
+      <element name="idPropriedadeNascimento" type="xsd:long"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+      <element name="codigoRaca" type="xsd:string"/>
+      <element name="tipoIdentificacao" type="xsd:long"/>
+      <element name="sexo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarAnimalReturn" type="tns1:RetornoAlterarAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarIE">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpf" type="xsd:string"/>
+      <element name="cnpj" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:string"/>
+      <element name="numeroIE" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarIEResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarIEReturn" type="tns1:RetornoAlterarIE"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarSenha">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarSenhaResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarSenhaReturn" type="tns1:RetornoRecuperarSenha"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cadastrarEmail">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cadastrarEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="cadastrarEmailReturn" type="tns1:RetornoCadastrarEmail"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarEmail">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarEmailResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarEmailReturn" type="tns1:RetornoConsultarEmail"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSenha">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="novaSenha" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSenhaResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarSenhaReturn" type="tns1:RetornoAlterarSenha"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarDadosAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarDadosAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarDadosAnimalReturn" type="tns1:RetornoConsultarDadosAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarMovimentacao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="gta" type="tns2:GtaDTO"/>
+      <element name="nrAcionamento" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarMovimentacaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarMovimentacaoReturn" type="tns1:RetornoConsultarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarDadosAnimalImportado">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarDadosAnimalImportadoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarDadosAnimalImportadoReturn" type="tns1:RetornoConsultarDadosAnimalImportado"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarMorteAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSisbovAnimal" type="xsd:string"/>
+      <element name="dataMorte" type="xsd:string"/>
+      <element name="codigoTipoMorte" type="xsd:long"/>
+      <element name="codigoCausaMorte" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarMorteAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="informarMorteAnimalReturn" type="tns1:RetornoMorteAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarDesligamentoAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSisbovAnimal" type="xsd:string"/>
+      <element name="tipoDesligamento" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarDesligamentoAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="informarDesligamentoAnimalReturn" type="tns1:RetornoDesligamentoAnimal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idPropriedadeOrigem" type="xsd:long"/>
+      <element name="cpfProdutorOrigem" type="xsd:string"/>
+      <element name="cnpjProdutorOrigem" type="xsd:string"/>
+      <element name="idPropriedadeDestino" type="xsd:long"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="cnpjProdutorDestino" type="xsd:string"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalPropAglomeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idPropriedadeOrigem" type="xsd:long"/>
+      <element name="cpfProdutorOrigem" type="xsd:string"/>
+      <element name="cnpjProdutorOrigem" type="xsd:string"/>
+      <element name="idAglomeracaoDestino" type="xsd:long"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalPropAglomeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalPropAglomeracaoReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoProp">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idAglomeracaoOrigem" type="xsd:long"/>
+      <element name="idPropriedadeDestino" type="xsd:long"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="cnpjProdutorDestino" type="xsd:string"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoPropResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalAglomeracaoPropReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoAglomeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idAglomeracaoOrigem" type="xsd:long"/>
+      <element name="idAglomeracaoDestino" type="xsd:long"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoAglomeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalAglomeracaoAglomeracaoReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoAglomeracaoNovaProp">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idAglomeracaoOrigem" type="xsd:long"/>
+      <element name="idPropriedadeDestino" type="xsd:long"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="cnpjProdutorDestino" type="xsd:string"/>
+      <element name="idAglomeracaoDestino" type="xsd:long"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalAglomeracaoAglomeracaoNovaPropReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoNovaProp">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idAglomeracaoOrigem" type="xsd:long"/>
+      <element name="idPropriedadeDestino" type="xsd:long"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="cnpjProdutorDestino" type="xsd:string"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalAglomeracaoNovaPropResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalAglomeracaoNovaPropReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalParaFrigorifico">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataValidade" type="xsd:string"/>
+      <element name="dataEmissao" type="xsd:string"/>
+      <element name="dataSaida" type="xsd:string"/>
+      <element name="dataChegada" type="xsd:string"/>
+      <element name="idPropriedadeOrigem" type="xsd:long"/>
+      <element name="cnpjFrigorifico" type="xsd:string"/>
+      <element name="cpfProdutorOrigem" type="xsd:string"/>
+      <element name="cnpjProdutorOrigem" type="xsd:string"/>
+      <element name="gtas" type="tns2:GtaDTO" maxOccurs="unbounded"/>
+      <element name="numerosSISBOV" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="movimentarAnimalParaFrigorificoResponse">
+    <complexType>
+     <sequence>
+      <element name="movimentarAnimalParaFrigorificoReturn" type="tns1:RetornoInformarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inventariarSolicitacaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="_numeroSolicitacao" type="xsd:long"/>
+      <element name="_cpfProdutor" type="xsd:string"/>
+      <element name="_cnpjProdutor" type="xsd:string"/>
+      <element name="_idPropriedadeDestino" type="xsd:long"/>
+      <element name="_tipoIdentificacao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inventariarSolicitacaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="inventariarSolicitacaoNumeracaoReturn" type="tns1:RetornoInventarioSolicitacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cancelarMovimentacao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idMovimentacao" type="xsd:long"/>
+      <element name="motivoCancelamento" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cancelarMovimentacaoResponse">
+    <complexType>
+     <sequence>
+      <element name="cancelarMovimentacaoReturn" type="tns1:RetornoCancelarMovimentacao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="excluirVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="excluirVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="excluirVistoriaReturn" type="tns1:RetornoExcluirVistoria"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarAnimaisAbatidos">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cnpjFrigorifico" type="xsd:string"/>
+      <element name="data" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarAnimaisAbatidosResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarAnimaisAbatidosReturn" type="tns1:RetornoConsultarAnimaisAbatidos"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSolicitacaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idSolicitacao" type="xsd:long"/>
+      <element name="tipoIdentificacao" type="xsd:long"/>
+      <element name="cnpjFabrica" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="alterarSolicitacaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="alterarSolicitacaoNumeracaoReturn" type="tns1:RetornoAlterarSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cancelarSolicitacaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idSolicitacao" type="xsd:long"/>
+      <element name="numerosSisbov" type="xsd:string" maxOccurs="unbounded"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="idMotivoCancelamento" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cancelarSolicitacaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="cancelarSolicitacaoNumeracaoReturn" type="tns1:RetornoCancelarSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarNotaFiscal">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+      <element name="nrSerie" type="xsd:string"/>
+      <element name="nrNota" type="xsd:string"/>
+      <element name="dtNota" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarNotaFiscalResponse">
+    <complexType>
+     <sequence>
+      <element name="informarNotaFiscalReturn" type="tns1:RetornoAlterarSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalizarSolicNumAnimalImportado">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+      <element name="cnpjFabrica" type="xsd:string"/>
+      <element name="nrSerie" type="xsd:string"/>
+      <element name="nrNota" type="xsd:string"/>
+      <element name="dtNota" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalizarSolicNumAnimalImportadoResponse">
+    <complexType>
+     <sequence>
+      <element name="finalizarSolicNumAnimalImportadoReturn" type="tns1:RetornoFinalizarSolicNumAnimalImportado"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="iniciarVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataAgendamento" type="xsd:string"/>
+      <element name="cpfSupervisor" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="iniciarVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="iniciarVistoriaReturn" type="tns1:RetornoCheckListVistoria"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns5_CheckListItemDTO">
+    <sequence>
+     <element name="item" type="tns5:CheckListItemDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns5_CheckListDivisaoDTO">
+    <sequence>
+     <element name="item" type="tns5:CheckListDivisaoDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns5_CheckListGrupoDTO">
+    <sequence>
+     <element name="item" type="tns5:CheckListGrupoDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="reagendarVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataReagendamento" type="xsd:string"/>
+      <element name="cpfSupervisor" type="xsd:string"/>
+      <element name="justificativa" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="reagendarVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="reagendarVistoriaReturn" type="tns1:RetornoCheckListVistoria"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarAgendamentoVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="dataInicial" type="xsd:string"/>
+      <element name="dataFinal" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="cpfSupervisor" type="xsd:string"/>
+      <element name="uf" type="xsd:string"/>
+      <element name="municipio" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarAgendamentoVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarAgendamentoVistoriaReturn" type="tns1:RetornoConsultarAgendamento"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns5_CheckListAgendamentoDTO">
+    <sequence>
+     <element name="item" type="tns5:CheckListAgendamentoDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="recuperarCheckListVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataAgendamento" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarCheckListVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarCheckListVistoriaReturn" type="tns1:RetornoCheckListVistoria"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarVistoriaLancada">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataAgendamento" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarVistoriaLancadaResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarVistoriaLancadaReturn" type="tns1:RetornoCheckListVistoria"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="lancarVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataVistoria" type="xsd:string"/>
+      <element name="cpfSupervisor" type="xsd:string"/>
+      <element name="resposta" type="tns5:CheckListItemRespostaDTO" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="lancarVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="lancarVistoriaReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="emitirParecerVistoriaRT">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataAgendamento" type="xsd:string"/>
+      <element name="parecer" type="xsd:string"/>
+      <element name="cpfResponsavelTecnico" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="emitirParecerVistoriaRTResponse">
+    <complexType>
+     <sequence>
+      <element name="emitirParecerVistoriaRTReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalizarVistoria">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataAgendamento" type="xsd:string"/>
+      <element name="cancelada" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="finalizarVistoriaResponse">
+    <complexType>
+     <sequence>
+      <element name="finalizarVistoriaReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="suspenderPropriedade">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="idMotivo" type="xsd:int"/>
+      <element name="obs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="suspenderPropriedadeResponse">
+    <complexType>
+     <sequence>
+      <element name="suspenderPropriedadeReturn" type="tns1:RetornoSuspenderPropriedade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarCancelamentoSuspensao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="justificativa" type="xsd:string"/>
+      <element name="idSuspensao" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarCancelamentoSuspensaoResponse">
+    <complexType>
+     <sequence>
+      <element name="solicitarCancelamentoSuspensaoReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarSuspensao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarSuspensaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarSuspensaoReturn" type="tns1:RetornoConsultarSuspensao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_Suspensao">
+    <sequence>
+     <element name="item" type="tns2:Suspensao" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="solicitarAlteracaoPosse">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedadeOrigem" type="xsd:string"/>
+      <element name="cpfProdutorOrigem" type="xsd:string"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="motivoSolicitacao" type="xsd:long"/>
+      <element name="justificativa" type="xsd:string"/>
+      <element name="tipoEnvio" type="xsd:long"/>
+      <element name="qtdeAnimais" type="xsd:long"/>
+      <element name="numeracaoEnvio" type="xsd:string" maxOccurs="unbounded"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarAlteracaoPosseResponse">
+    <complexType>
+     <sequence>
+      <element name="solicitarAlteracaoPosseReturn" type="tns1:RetornoAlteracaoPosse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarProtocoloSolicitacaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataInicial" type="xsd:string"/>
+      <element name="dataFinal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarProtocoloSolicitacaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarProtocoloSolicitacaoNumeracaoReturn" type="tns1:RetornoConsultarProtocoloSolicitacaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_long">
+    <sequence>
+     <element name="item" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="solicitarDistribuicaoNumeracao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+      <element name="tipoEnvio" type="xsd:int"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="cnpjCertificadora" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string" maxOccurs="unbounded"/>
+      <element name="quantidade" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="solicitarDistribuicaoNumeracaoResponse">
+    <complexType>
+     <sequence>
+      <element name="solicitarDistribuicaoNumeracaoReturn" type="tns1:RetornoInformarDistribuicaoNumeracao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarSolicitacaoDistribuicao">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="cpfProdutor" type="xsd:string"/>
+      <element name="numeroSolicitacao" type="xsd:long"/>
+      <element name="cnpjProdutor" type="xsd:string"/>
+      <element name="dataInicial" type="xsd:string"/>
+      <element name="dataFinal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarSolicitacaoDistribuicaoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarSolicitacaoDistribuicaoReturn" type="tns1:RetornoConsultarSolicitacaoDistribuicao"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_SolicitacaoDistribuicaoSimplificada">
+    <sequence>
+     <element name="item" type="tns2:SolicitacaoDistribuicaoSimplificada" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="consultarMovimentacaoExterna">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedadeDestino" type="xsd:long"/>
+      <element name="cpfProdutorDestino" type="xsd:string"/>
+      <element name="dataInicial" type="xsd:string"/>
+      <element name="dataFinal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarMovimentacaoExternaResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarMovimentacaoExternaReturn" type="tns1:RetornoMovimentacaoExterna"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_MovimentacaoAnimalDTO">
+    <sequence>
+     <element name="item" type="tns2:MovimentacaoAnimalDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_MovimentacaoExternaDTO">
+    <sequence>
+     <element name="item" type="tns2:MovimentacaoExternaDTO" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+   </complexType>
+   <element name="informarPeriodoConfinamento">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="dataConfinamentoInicial" type="xsd:string"/>
+      <element name="dataConfinamentoFinal" type="xsd:string"/>
+      <element name="cancelada" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarPeriodoConfinamentoResponse">
+    <complexType>
+     <sequence>
+      <element name="informarPeriodoConfinamentoReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularNroSisbovNroEletronico">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="nroSisbov" type="xsd:string"/>
+      <element name="nroEletronico" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="vincularNroSisbovNroEletronicoResponse">
+    <complexType>
+     <sequence>
+      <element name="vincularNroSisbovNroEletronicoReturn" type="tns1:RetornoWsSISBOV"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarNroEletronico">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="numeroSisbov" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarNroEletronicoResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarNroEletronicoReturn" type="tns1:RetornoRecuperarNumeroEletronico"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarAjusteRebanho">
+    <complexType>
+     <sequence>
+      <element name="usuario" type="xsd:string"/>
+      <element name="senha" type="xsd:string"/>
+      <element name="idPropriedade" type="xsd:long"/>
+      <element name="cpfProprietarioPropriedade" type="xsd:string"/>
+      <element name="cnpjProprietarioPropriedade" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="informarAjusteRebanhoResponse">
+    <complexType>
+     <sequence>
+      <element name="informarAjusteRebanhoReturn" type="tns1:RetornoInformarAjusteRebanho"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://model.sisbov.mapa.gov.br" elementFormDefault="qualified">
+   <import namespace="http://servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://persistence.serpro.gov.br"/>
+   <import namespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br"/>
+   <import namespace="http://retorno.servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://tipos.model.sisbov.mapa.gov.br"/>
+   <complexType name="Erro">
+    <sequence>
+     <element name="codigoErro" nillable="true" type="xsd:string"/>
+     <element name="menssagemErro" nillable="true" type="xsd:string"/>
+     <element name="pilhaDeErro" nillable="true" type="xsd:string"/>
+     <element name="valorInformado" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RegistroTabelaDominio">
+    <complexContent>
+     <extension base="tns3:ObjetoPersistente">
+      <sequence>
+       <element name="codigo" nillable="true" type="xsd:string"/>
+       <element name="descricao" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="NumeroSimplificado">
+    <sequence>
+     <element name="numero" nillable="true" type="xsd:string"/>
+     <element name="statusUtilizacao" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="NumeroReimpressaoDTO">
+    <sequence>
+     <element name="numeroSisbov" nillable="true" type="xsd:string"/>
+     <element name="tipoIdentificacao" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="NumeroSimplificadoReimpressao">
+    <sequence>
+     <element name="descricao" nillable="true" type="xsd:string"/>
+     <element name="numero" nillable="true" type="xsd:string"/>
+     <element name="parecer" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="GtaDTO">
+    <sequence>
+     <element name="numeroGTA" nillable="true" type="xsd:string"/>
+     <element name="numeroSerie" nillable="true" type="xsd:string"/>
+     <element name="qtdeAnimais" type="xsd:long"/>
+     <element name="uf" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Suspensao">
+    <sequence>
+     <element name="classificacao" nillable="true" type="xsd:string"/>
+     <element name="dataSuspensao" nillable="true" type="xsd:string"/>
+     <element name="idSuspensao" nillable="true" type="xsd:string"/>
+     <element name="motivo" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SolicitacaoDistribuicaoSimplificada">
+    <sequence>
+     <element name="UF" nillable="true" type="xsd:string"/>
+     <element name="cnpjProdutor" nillable="true" type="xsd:string"/>
+     <element name="cpfProdutor" nillable="true" type="xsd:string"/>
+     <element name="dataDistribuicao" nillable="true" type="xsd:string"/>
+     <element name="numeracao" nillable="true" type="impl:ArrayOf_tns2_NumeroSimplificado"/>
+     <element name="numeroSolicitacao" type="xsd:long"/>
+     <element name="situacao" nillable="true" type="xsd:string"/>
+     <element name="tipoEnvio" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="MovimentacaoAnimalDTO">
+    <sequence>
+     <element name="cnpjCertificadoraOrigem" nillable="true" type="xsd:string"/>
+     <element name="dtChegada" nillable="true" type="xsd:string"/>
+     <element name="dtProcessamento" nillable="true" type="xsd:string"/>
+     <element name="numeroSisbov" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="MovimentacaoExternaDTO">
+    <sequence>
+     <element name="cpfCnpjProdutor" nillable="true" type="xsd:string"/>
+     <element name="idPropriedade" type="xsd:long"/>
+     <element name="movimentacoes" nillable="true" type="impl:ArrayOf_tns2_MovimentacaoAnimalDTO"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://retorno.servicosWeb.sisbov.mapa.gov.br" elementFormDefault="qualified">
+   <import namespace="http://servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://persistence.serpro.gov.br"/>
+   <import namespace="http://model.sisbov.mapa.gov.br"/>
+   <import namespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br"/>
+   <import namespace="http://tipos.model.sisbov.mapa.gov.br"/>
+   <complexType name="RetornoWsSISBOV">
+    <sequence>
+     <element name="ambiente" nillable="true" type="xsd:string"/>
+     <element name="erroBanco" nillable="true" type="xsd:string"/>
+     <element name="idTransacao" type="xsd:long"/>
+     <element name="listaErros" nillable="true" type="impl:ArrayOf_tns2_Erro"/>
+     <element name="status" type="xsd:int"/>
+     <element name="trace" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RetornoRecuperarTabela">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="registros" nillable="true" type="impl:ArrayOf_tns2_RegistroTabelaDominio"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarVinculoMorteCausa">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="vinculos" nillable="true" type="impl:ArrayOf_tns4_TipoMorteCausa"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirProprietario">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarProprietario">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirProdutor">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarProdutor">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirSupervisor">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarSupervisor">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" nillable="true" type="xsd:string"/>
+       <element name="tipoChave" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="acessoFazenda" nillable="true" type="xsd:string"/>
+       <element name="area" nillable="true" type="xsd:string"/>
+       <element name="bairro" nillable="true" type="xsd:string"/>
+       <element name="cep" nillable="true" type="xsd:string"/>
+       <element name="codMunicipio" nillable="true" type="xsd:string"/>
+       <element name="distanciaSedeMunicipio" nillable="true" type="xsd:string"/>
+       <element name="enderecoCorrespondenciaBairro" nillable="true" type="xsd:string"/>
+       <element name="enderecoCorrespondenciaCep" nillable="true" type="xsd:string"/>
+       <element name="enderecoCorrespondenciaCodMunicipio" nillable="true" type="xsd:string"/>
+       <element name="enderecoCorrespondenciaLogradouro" nillable="true" type="xsd:string"/>
+       <element name="faxResidencial" nillable="true" type="xsd:string"/>
+       <element name="grauLatitude" nillable="true" type="xsd:string"/>
+       <element name="grauLongitude" nillable="true" type="xsd:string"/>
+       <element name="incra" nillable="true" type="xsd:string"/>
+       <element name="logradouro" nillable="true" type="xsd:string"/>
+       <element name="minutoLatitude" nillable="true" type="xsd:string"/>
+       <element name="minutoLongitude" nillable="true" type="xsd:string"/>
+       <element name="nirf" nillable="true" type="xsd:string"/>
+       <element name="nomePropriedade" nillable="true" type="xsd:string"/>
+       <element name="nrFaxContato" nillable="true" type="xsd:string"/>
+       <element name="nrTelefoneContato" nillable="true" type="xsd:string"/>
+       <element name="orientacaoLatitude" nillable="true" type="xsd:string"/>
+       <element name="orientacaoLongitude" nillable="true" type="xsd:string"/>
+       <element name="razaoSocial" nillable="true" type="xsd:string"/>
+       <element name="segundoLatitude" nillable="true" type="xsd:string"/>
+       <element name="segundoLongitude" nillable="true" type="xsd:string"/>
+       <element name="telefoneResidencial" nillable="true" type="xsd:string"/>
+       <element name="tipoPropriedade" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idPropriedade" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoVincularProprietarioPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoDesvincularProdutorPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoDesvincularProprietarioPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoVincularProdutorPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirVistoriaERAS">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoSolicitacaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeracao" nillable="true" type="impl:ArrayOf_tns2_NumeroSimplificado"/>
+       <element name="numeroSolicitacao" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoSolicitacaoNumeracaoReimpressao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeroSolicitacao" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoRecuperarNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeracao" nillable="true" type="impl:ArrayOf_tns2_NumeroSimplificado"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultaSolicitacaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="dataUltimaAlteracao" nillable="true" type="xsd:string"/>
+       <element name="nrSolicitacao" nillable="true" type="xsd:long"/>
+       <element name="numeracao" nillable="true" type="impl:ArrayOf_tns2_NumeroSimplificado"/>
+       <element name="observacao" nillable="true" type="xsd:string"/>
+       <element name="situacao" nillable="true" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarNumeracaoReimpressao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeracoes" nillable="true" type="impl:ArrayOf_tns2_NumeroSimplificadoReimpressao"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoIncluirAnimal">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="dataLiberacaoAbate" nillable="true" type="xsd:string"/>
+       <element name="dia" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarAnimal">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarIE">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoRecuperarSenha">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoCadastrarEmail">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarEmail">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="email" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarSenha">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarDadosAnimal">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="dataIdentificacao" nillable="true" type="xsd:string"/>
+       <element name="dataInclusao" nillable="true" type="xsd:string"/>
+       <element name="dataLiberacaoAbate" nillable="true" type="xsd:string"/>
+       <element name="dataNascimento" nillable="true" type="xsd:string"/>
+       <element name="dia" nillable="true" type="xsd:string"/>
+       <element name="numero" nillable="true" type="xsd:string"/>
+       <element name="numeroDefinitivo" nillable="true" type="xsd:string"/>
+       <element name="numeroProvisorio" nillable="true" type="xsd:string"/>
+       <element name="pais" nillable="true" type="xsd:string"/>
+       <element name="raca" nillable="true" type="xsd:string"/>
+       <element name="sexo" nillable="true" type="xsd:string"/>
+       <element name="tipoIdentificacao" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarMovimentacao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idMovimentacao" type="xsd:long"/>
+       <element name="nrAcionamentos" type="xsd:long"/>
+       <element name="nrInicialSisbov" nillable="true" type="xsd:string"/>
+       <element name="qtdeAnimaisMovimentado" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarDadosAnimalImportado">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="anoImportacao" nillable="true" type="xsd:string"/>
+       <element name="dataEntrada" nillable="true" type="xsd:string"/>
+       <element name="dataIdentificacao" nillable="true" type="xsd:string"/>
+       <element name="dataInclusao" nillable="true" type="xsd:string"/>
+       <element name="dataNascimento" nillable="true" type="xsd:string"/>
+       <element name="dataNascimentoEstimada" nillable="true" type="xsd:string"/>
+       <element name="dia" nillable="true" type="xsd:string"/>
+       <element name="nome" nillable="true" type="xsd:string"/>
+       <element name="numero" nillable="true" type="xsd:string"/>
+       <element name="numeroDefinitivo" nillable="true" type="xsd:string"/>
+       <element name="numeroProvisorio" nillable="true" type="xsd:string"/>
+       <element name="observacao" nillable="true" type="xsd:string"/>
+       <element name="pais" nillable="true" type="xsd:string"/>
+       <element name="raca" nillable="true" type="xsd:string"/>
+       <element name="registroAssociacao" nillable="true" type="xsd:string"/>
+       <element name="sexo" nillable="true" type="xsd:string"/>
+       <element name="tipoIdentificacao" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoMorteAnimal">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idMorte" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoDesligamentoAnimal">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idMorte" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoInformarMovimentacao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="chave" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoInventarioSolicitacao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idSolicitacao" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoCancelarMovimentacao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoExcluirVistoria">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarAnimaisAbatidos">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="animais" nillable="true" type="impl:ArrayOf_xsd_string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlterarSolicitacaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoCancelarSolicitacaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoFinalizarSolicNumAnimalImportado">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoCheckListVistoria">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="grupos" nillable="true" type="impl:ArrayOf_tns5_CheckListGrupoDTO"/>
+       <element name="idCheckListVistoria" type="xsd:long"/>
+       <element name="nomeCheckListVistoria" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarAgendamento">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="agendamento" nillable="true" type="impl:ArrayOf_tns5_CheckListAgendamentoDTO"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoSuspenderPropriedade">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="idSuspensao" nillable="true" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarSuspensao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="classificacao" nillable="true" type="xsd:string"/>
+       <element name="dataSuspensao" nillable="true" type="xsd:string"/>
+       <element name="listaSuspensao" nillable="true" type="impl:ArrayOf_tns2_Suspensao"/>
+       <element name="motivo" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoAlteracaoPosse">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="nrProtocolo" nillable="true" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarProtocoloSolicitacaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="listaProtocolos" nillable="true" type="impl:ArrayOf_xsd_long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoInformarDistribuicaoNumeracao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeroSolicitacao" type="xsd:long"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoConsultarSolicitacaoDistribuicao">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="solicitacao" nillable="true" type="impl:ArrayOf_tns2_SolicitacaoDistribuicaoSimplificada"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoMovimentacaoExterna">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="movimentacaoPropriedade" nillable="true" type="impl:ArrayOf_tns2_MovimentacaoExternaDTO"/>
+       <element name="quantidadeAnimais" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoRecuperarNumeroEletronico">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="numeroEletronico" nillable="true" type="xsd:string"/>
+       <element name="numeroSisbov" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RetornoInformarAjusteRebanho">
+    <complexContent>
+     <extension base="tns1:RetornoWsSISBOV">
+      <sequence>
+       <element name="dtInicioPeriodo" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://persistence.serpro.gov.br" elementFormDefault="qualified">
+   <import namespace="http://servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://model.sisbov.mapa.gov.br"/>
+   <import namespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br"/>
+   <import namespace="http://retorno.servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://tipos.model.sisbov.mapa.gov.br"/>
+   <complexType name="ObjetoPersistente">
+    <sequence>
+     <element name="id" nillable="true" type="xsd:long"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tipos.model.sisbov.mapa.gov.br" elementFormDefault="qualified">
+   <import namespace="http://servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://persistence.serpro.gov.br"/>
+   <import namespace="http://model.sisbov.mapa.gov.br"/>
+   <import namespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br"/>
+   <import namespace="http://retorno.servicosWeb.sisbov.mapa.gov.br"/>
+   <complexType name="TipoMorteCausa">
+    <sequence>
+     <element name="dsCausaMorte" nillable="true" type="xsd:string"/>
+     <element name="dsTipoMorte" nillable="true" type="xsd:string"/>
+     <element name="idCausaMorte" type="xsd:long"/>
+     <element name="idTipoMorte" type="xsd:long"/>
+     <element name="idVinculo" type="xsd:long"/>
+     <element name="statusCausaMorte" nillable="true" type="xsd:string"/>
+     <element name="statusTipoMorte" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dto.checklist.certificado.negocio.sisbov.mapa.gov.br" elementFormDefault="qualified">
+   <import namespace="http://servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://persistence.serpro.gov.br"/>
+   <import namespace="http://model.sisbov.mapa.gov.br"/>
+   <import namespace="http://retorno.servicosWeb.sisbov.mapa.gov.br"/>
+   <import namespace="http://tipos.model.sisbov.mapa.gov.br"/>
+   <complexType name="CheckListItemDTO">
+    <sequence>
+     <element name="conformidadeItem" nillable="true" type="xsd:string"/>
+     <element name="descricaoItem" nillable="true" type="xsd:string"/>
+     <element name="idItem" nillable="true" type="xsd:long"/>
+     <element name="ordemItem" nillable="true" type="xsd:int"/>
+     <element name="respostaItem" nillable="true" type="xsd:string"/>
+     <element name="tipoItem" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CheckListDivisaoDTO">
+    <sequence>
+     <element name="idDivisao" nillable="true" type="xsd:long"/>
+     <element name="itemDivisao" nillable="true" type="impl:ArrayOf_tns5_CheckListItemDTO"/>
+     <element name="nomeDivisao" nillable="true" type="xsd:string"/>
+     <element name="ordemDivisao" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="CheckListGrupoDTO">
+    <sequence>
+     <element name="divisaoGrupo" nillable="true" type="impl:ArrayOf_tns5_CheckListDivisaoDTO"/>
+     <element name="idGrupo" nillable="true" type="xsd:long"/>
+     <element name="itemGrupo" nillable="true" type="impl:ArrayOf_tns5_CheckListItemDTO"/>
+     <element name="nomeGrupo" nillable="true" type="xsd:string"/>
+     <element name="ordemGrupo" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="CheckListAgendamentoDTO">
+    <sequence>
+     <element name="cancelada" nillable="true" type="xsd:boolean"/>
+     <element name="cpf" nillable="true" type="xsd:string"/>
+     <element name="dataAgendamento" nillable="true" type="xsd:string"/>
+     <element name="idPropriedade" type="xsd:long"/>
+    </sequence>
+   </complexType>
+   <complexType name="CheckListItemRespostaDTO">
+    <sequence>
+     <element name="conformidade" nillable="true" type="xsd:string"/>
+     <element name="id" nillable="true" type="xsd:long"/>
+     <element name="resposta" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+     <message name="recuperarTabelaRequest">
+
+          <part name="parameters" element="impl:recuperarTabela"/>
+
+     </message>
+
+     <message name="recuperarTabelaResponse">
+
+          <part name="parameters" element="impl:recuperarTabelaResponse"/>
+
+     </message>
+
+     <message name="recuperarTabelaMunicipiosRequest">
+
+          <part name="parameters" element="impl:recuperarTabelaMunicipios"/>
+
+     </message>
+
+     <message name="recuperarTabelaMunicipiosResponse">
+
+          <part name="parameters" element="impl:recuperarTabelaMunicipiosResponse"/>
+
+     </message>
+
+     <message name="recuperarVinculoMorteCausaRequest">
+
+          <part name="parameters" element="impl:recuperarVinculoMorteCausa"/>
+
+     </message>
+
+     <message name="recuperarVinculoMorteCausaResponse">
+
+          <part name="parameters" element="impl:recuperarVinculoMorteCausaResponse"/>
+
+     </message>
+
+     <message name="incluirProprietarioRequest">
+
+          <part name="parameters" element="impl:incluirProprietario"/>
+
+     </message>
+
+     <message name="incluirProprietarioResponse">
+
+          <part name="parameters" element="impl:incluirProprietarioResponse"/>
+
+     </message>
+
+     <message name="alterarProprietarioRequest">
+
+          <part name="parameters" element="impl:alterarProprietario"/>
+
+     </message>
+
+     <message name="alterarProprietarioResponse">
+
+          <part name="parameters" element="impl:alterarProprietarioResponse"/>
+
+     </message>
+
+     <message name="incluirProdutorRequest">
+
+          <part name="parameters" element="impl:incluirProdutor"/>
+
+     </message>
+
+     <message name="incluirProdutorResponse">
+
+          <part name="parameters" element="impl:incluirProdutorResponse"/>
+
+     </message>
+
+     <message name="alterarProdutorRequest">
+
+          <part name="parameters" element="impl:alterarProdutor"/>
+
+     </message>
+
+     <message name="alterarProdutorResponse">
+
+          <part name="parameters" element="impl:alterarProdutorResponse"/>
+
+     </message>
+
+     <message name="incluirSupervisorRequest">
+
+          <part name="parameters" element="impl:incluirSupervisor"/>
+
+     </message>
+
+     <message name="incluirSupervisorResponse">
+
+          <part name="parameters" element="impl:incluirSupervisorResponse"/>
+
+     </message>
+
+     <message name="alterarSupervisorRequest">
+
+          <part name="parameters" element="impl:alterarSupervisor"/>
+
+     </message>
+
+     <message name="alterarSupervisorResponse">
+
+          <part name="parameters" element="impl:alterarSupervisorResponse"/>
+
+     </message>
+
+     <message name="consultarPropriedadeRequest">
+
+          <part name="parameters" element="impl:consultarPropriedade"/>
+
+     </message>
+
+     <message name="consultarPropriedadeResponse">
+
+          <part name="parameters" element="impl:consultarPropriedadeResponse"/>
+
+     </message>
+
+     <message name="incluirPropriedadeRequest">
+
+          <part name="parameters" element="impl:incluirPropriedade"/>
+
+     </message>
+
+     <message name="incluirPropriedadeResponse">
+
+          <part name="parameters" element="impl:incluirPropriedadeResponse"/>
+
+     </message>
+
+     <message name="alterarPropriedadeRequest">
+
+          <part name="parameters" element="impl:alterarPropriedade"/>
+
+     </message>
+
+     <message name="alterarPropriedadeResponse">
+
+          <part name="parameters" element="impl:alterarPropriedadeResponse"/>
+
+     </message>
+
+     <message name="vincularProprietarioPropriedadeRequest">
+
+          <part name="parameters" element="impl:vincularProprietarioPropriedade"/>
+
+     </message>
+
+     <message name="vincularProprietarioPropriedadeResponse">
+
+          <part name="parameters" element="impl:vincularProprietarioPropriedadeResponse"/>
+
+     </message>
+
+     <message name="desvincularProdutorPropriedadeRequest">
+
+          <part name="parameters" element="impl:desvincularProdutorPropriedade"/>
+
+     </message>
+
+     <message name="desvincularProdutorPropriedadeResponse">
+
+          <part name="parameters" element="impl:desvincularProdutorPropriedadeResponse"/>
+
+     </message>
+
+     <message name="desvincularPropriedadeProprietarioRequest">
+
+          <part name="parameters" element="impl:desvincularPropriedadeProprietario"/>
+
+     </message>
+
+     <message name="desvincularPropriedadeProprietarioResponse">
+
+          <part name="parameters" element="impl:desvincularPropriedadeProprietarioResponse"/>
+
+     </message>
+
+     <message name="vincularProdutorPropriedadeRequest">
+
+          <part name="parameters" element="impl:vincularProdutorPropriedade"/>
+
+     </message>
+
+     <message name="vincularProdutorPropriedadeResponse">
+
+          <part name="parameters" element="impl:vincularProdutorPropriedadeResponse"/>
+
+     </message>
+
+     <message name="incluirVistoriaERASRequest">
+
+          <part name="parameters" element="impl:incluirVistoriaERAS"/>
+
+     </message>
+
+     <message name="incluirVistoriaERASResponse">
+
+          <part name="parameters" element="impl:incluirVistoriaERASResponse"/>
+
+     </message>
+
+     <message name="solicitarNumeracaoRequest">
+
+          <part name="parameters" element="impl:solicitarNumeracao"/>
+
+     </message>
+
+     <message name="solicitarNumeracaoResponse">
+
+          <part name="parameters" element="impl:solicitarNumeracaoResponse"/>
+
+     </message>
+
+     <message name="solicitarNumeracaoReimpressaoRequest">
+
+          <part name="parameters" element="impl:solicitarNumeracaoReimpressao"/>
+
+     </message>
+
+     <message name="solicitarNumeracaoReimpressaoResponse">
+
+          <part name="parameters" element="impl:solicitarNumeracaoReimpressaoResponse"/>
+
+     </message>
+
+     <message name="recuperarNumeracaoRequest">
+
+          <part name="parameters" element="impl:recuperarNumeracao"/>
+
+     </message>
+
+     <message name="recuperarNumeracaoResponse">
+
+          <part name="parameters" element="impl:recuperarNumeracaoResponse"/>
+
+     </message>
+
+     <message name="consultaSolicitacaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:consultaSolicitacaoNumeracao"/>
+
+     </message>
+
+     <message name="consultaSolicitacaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:consultaSolicitacaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="consultarNumeracaoReimpressaoRequest">
+
+          <part name="parameters" element="impl:consultarNumeracaoReimpressao"/>
+
+     </message>
+
+     <message name="consultarNumeracaoReimpressaoResponse">
+
+          <part name="parameters" element="impl:consultarNumeracaoReimpressaoResponse"/>
+
+     </message>
+
+     <message name="incluirAnimalRequest">
+
+          <part name="parameters" element="impl:incluirAnimal"/>
+
+     </message>
+
+     <message name="incluirAnimalResponse">
+
+          <part name="parameters" element="impl:incluirAnimalResponse"/>
+
+     </message>
+
+     <message name="incluirAnimalImportadoRequest">
+
+          <part name="parameters" element="impl:incluirAnimalImportado"/>
+
+     </message>
+
+     <message name="incluirAnimalImportadoResponse">
+
+          <part name="parameters" element="impl:incluirAnimalImportadoResponse"/>
+
+     </message>
+
+     <message name="alterarAnimalImportadoRequest">
+
+          <part name="parameters" element="impl:alterarAnimalImportado"/>
+
+     </message>
+
+     <message name="alterarAnimalImportadoResponse">
+
+          <part name="parameters" element="impl:alterarAnimalImportadoResponse"/>
+
+     </message>
+
+     <message name="alterarAnimalRequest">
+
+          <part name="parameters" element="impl:alterarAnimal"/>
+
+     </message>
+
+     <message name="alterarAnimalResponse">
+
+          <part name="parameters" element="impl:alterarAnimalResponse"/>
+
+     </message>
+
+     <message name="alterarIERequest">
+
+          <part name="parameters" element="impl:alterarIE"/>
+
+     </message>
+
+     <message name="alterarIEResponse">
+
+          <part name="parameters" element="impl:alterarIEResponse"/>
+
+     </message>
+
+     <message name="recuperarSenhaRequest">
+
+          <part name="parameters" element="impl:recuperarSenha"/>
+
+     </message>
+
+     <message name="recuperarSenhaResponse">
+
+          <part name="parameters" element="impl:recuperarSenhaResponse"/>
+
+     </message>
+
+     <message name="cadastrarEmailRequest">
+
+          <part name="parameters" element="impl:cadastrarEmail"/>
+
+     </message>
+
+     <message name="cadastrarEmailResponse">
+
+          <part name="parameters" element="impl:cadastrarEmailResponse"/>
+
+     </message>
+
+     <message name="consultarEmailRequest">
+
+          <part name="parameters" element="impl:consultarEmail"/>
+
+     </message>
+
+     <message name="consultarEmailResponse">
+
+          <part name="parameters" element="impl:consultarEmailResponse"/>
+
+     </message>
+
+     <message name="alterarSenhaRequest">
+
+          <part name="parameters" element="impl:alterarSenha"/>
+
+     </message>
+
+     <message name="alterarSenhaResponse">
+
+          <part name="parameters" element="impl:alterarSenhaResponse"/>
+
+     </message>
+
+     <message name="consultarDadosAnimalRequest">
+
+          <part name="parameters" element="impl:consultarDadosAnimal"/>
+
+     </message>
+
+     <message name="consultarDadosAnimalResponse">
+
+          <part name="parameters" element="impl:consultarDadosAnimalResponse"/>
+
+     </message>
+
+     <message name="consultarMovimentacaoRequest">
+
+          <part name="parameters" element="impl:consultarMovimentacao"/>
+
+     </message>
+
+     <message name="consultarMovimentacaoResponse">
+
+          <part name="parameters" element="impl:consultarMovimentacaoResponse"/>
+
+     </message>
+
+     <message name="consultarDadosAnimalImportadoRequest">
+
+          <part name="parameters" element="impl:consultarDadosAnimalImportado"/>
+
+     </message>
+
+     <message name="consultarDadosAnimalImportadoResponse">
+
+          <part name="parameters" element="impl:consultarDadosAnimalImportadoResponse"/>
+
+     </message>
+
+     <message name="informarMorteAnimalRequest">
+
+          <part name="parameters" element="impl:informarMorteAnimal"/>
+
+     </message>
+
+     <message name="informarMorteAnimalResponse">
+
+          <part name="parameters" element="impl:informarMorteAnimalResponse"/>
+
+     </message>
+
+     <message name="informarDesligamentoAnimalRequest">
+
+          <part name="parameters" element="impl:informarDesligamentoAnimal"/>
+
+     </message>
+
+     <message name="informarDesligamentoAnimalResponse">
+
+          <part name="parameters" element="impl:informarDesligamentoAnimalResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalRequest">
+
+          <part name="parameters" element="impl:movimentarAnimal"/>
+
+     </message>
+
+     <message name="movimentarAnimalResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalPropAglomeracaoRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalPropAglomeracao"/>
+
+     </message>
+
+     <message name="movimentarAnimalPropAglomeracaoResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalPropAglomeracaoResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoPropRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoProp"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoPropResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoPropResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoAglomeracaoRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoAglomeracao"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoAglomeracaoResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoAglomeracaoResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoAglomeracaoNovaPropRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoAglomeracaoNovaProp"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoNovaPropRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoNovaProp"/>
+
+     </message>
+
+     <message name="movimentarAnimalAglomeracaoNovaPropResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalAglomeracaoNovaPropResponse"/>
+
+     </message>
+
+     <message name="movimentarAnimalParaFrigorificoRequest">
+
+          <part name="parameters" element="impl:movimentarAnimalParaFrigorifico"/>
+
+     </message>
+
+     <message name="movimentarAnimalParaFrigorificoResponse">
+
+          <part name="parameters" element="impl:movimentarAnimalParaFrigorificoResponse"/>
+
+     </message>
+
+     <message name="inventariarSolicitacaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:inventariarSolicitacaoNumeracao"/>
+
+     </message>
+
+     <message name="inventariarSolicitacaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:inventariarSolicitacaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="cancelarMovimentacaoRequest">
+
+          <part name="parameters" element="impl:cancelarMovimentacao"/>
+
+     </message>
+
+     <message name="cancelarMovimentacaoResponse">
+
+          <part name="parameters" element="impl:cancelarMovimentacaoResponse"/>
+
+     </message>
+
+     <message name="excluirVistoriaRequest">
+
+          <part name="parameters" element="impl:excluirVistoria"/>
+
+     </message>
+
+     <message name="excluirVistoriaResponse">
+
+          <part name="parameters" element="impl:excluirVistoriaResponse"/>
+
+     </message>
+
+     <message name="consultarAnimaisAbatidosRequest">
+
+          <part name="parameters" element="impl:consultarAnimaisAbatidos"/>
+
+     </message>
+
+     <message name="consultarAnimaisAbatidosResponse">
+
+          <part name="parameters" element="impl:consultarAnimaisAbatidosResponse"/>
+
+     </message>
+
+     <message name="alterarSolicitacaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:alterarSolicitacaoNumeracao"/>
+
+     </message>
+
+     <message name="alterarSolicitacaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:alterarSolicitacaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="cancelarSolicitacaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:cancelarSolicitacaoNumeracao"/>
+
+     </message>
+
+     <message name="cancelarSolicitacaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:cancelarSolicitacaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="informarNotaFiscalRequest">
+
+          <part name="parameters" element="impl:informarNotaFiscal"/>
+
+     </message>
+
+     <message name="informarNotaFiscalResponse">
+
+          <part name="parameters" element="impl:informarNotaFiscalResponse"/>
+
+     </message>
+
+     <message name="finalizarSolicNumAnimalImportadoRequest">
+
+          <part name="parameters" element="impl:finalizarSolicNumAnimalImportado"/>
+
+     </message>
+
+     <message name="finalizarSolicNumAnimalImportadoResponse">
+
+          <part name="parameters" element="impl:finalizarSolicNumAnimalImportadoResponse"/>
+
+     </message>
+
+     <message name="iniciarVistoriaRequest">
+
+          <part name="parameters" element="impl:iniciarVistoria"/>
+
+     </message>
+
+     <message name="iniciarVistoriaResponse">
+
+          <part name="parameters" element="impl:iniciarVistoriaResponse"/>
+
+     </message>
+
+     <message name="reagendarVistoriaRequest">
+
+          <part name="parameters" element="impl:reagendarVistoria"/>
+
+     </message>
+
+     <message name="reagendarVistoriaResponse">
+
+          <part name="parameters" element="impl:reagendarVistoriaResponse"/>
+
+     </message>
+
+     <message name="consultarAgendamentoVistoriaRequest">
+
+          <part name="parameters" element="impl:consultarAgendamentoVistoria"/>
+
+     </message>
+
+     <message name="consultarAgendamentoVistoriaResponse">
+
+          <part name="parameters" element="impl:consultarAgendamentoVistoriaResponse"/>
+
+     </message>
+
+     <message name="recuperarCheckListVistoriaRequest">
+
+          <part name="parameters" element="impl:recuperarCheckListVistoria"/>
+
+     </message>
+
+     <message name="recuperarCheckListVistoriaResponse">
+
+          <part name="parameters" element="impl:recuperarCheckListVistoriaResponse"/>
+
+     </message>
+
+     <message name="recuperarVistoriaLancadaRequest">
+
+          <part name="parameters" element="impl:recuperarVistoriaLancada"/>
+
+     </message>
+
+     <message name="recuperarVistoriaLancadaResponse">
+
+          <part name="parameters" element="impl:recuperarVistoriaLancadaResponse"/>
+
+     </message>
+
+     <message name="lancarVistoriaRequest">
+
+          <part name="parameters" element="impl:lancarVistoria"/>
+
+     </message>
+
+     <message name="lancarVistoriaResponse">
+
+          <part name="parameters" element="impl:lancarVistoriaResponse"/>
+
+     </message>
+
+     <message name="emitirParecerVistoriaRTRequest">
+
+          <part name="parameters" element="impl:emitirParecerVistoriaRT"/>
+
+     </message>
+
+     <message name="emitirParecerVistoriaRTResponse">
+
+          <part name="parameters" element="impl:emitirParecerVistoriaRTResponse"/>
+
+     </message>
+
+     <message name="finalizarVistoriaRequest">
+
+          <part name="parameters" element="impl:finalizarVistoria"/>
+
+     </message>
+
+     <message name="finalizarVistoriaResponse">
+
+          <part name="parameters" element="impl:finalizarVistoriaResponse"/>
+
+     </message>
+
+     <message name="suspenderPropriedadeRequest">
+
+          <part name="parameters" element="impl:suspenderPropriedade"/>
+
+     </message>
+
+     <message name="suspenderPropriedadeResponse">
+
+          <part name="parameters" element="impl:suspenderPropriedadeResponse"/>
+
+     </message>
+
+     <message name="solicitarCancelamentoSuspensaoRequest">
+
+          <part name="parameters" element="impl:solicitarCancelamentoSuspensao"/>
+
+     </message>
+
+     <message name="solicitarCancelamentoSuspensaoResponse">
+
+          <part name="parameters" element="impl:solicitarCancelamentoSuspensaoResponse"/>
+
+     </message>
+
+     <message name="consultarSuspensaoRequest">
+
+          <part name="parameters" element="impl:consultarSuspensao"/>
+
+     </message>
+
+     <message name="consultarSuspensaoResponse">
+
+          <part name="parameters" element="impl:consultarSuspensaoResponse"/>
+
+     </message>
+
+     <message name="solicitarAlteracaoPosseRequest">
+
+          <part name="parameters" element="impl:solicitarAlteracaoPosse"/>
+
+     </message>
+
+     <message name="solicitarAlteracaoPosseResponse">
+
+          <part name="parameters" element="impl:solicitarAlteracaoPosseResponse"/>
+
+     </message>
+
+     <message name="consultarProtocoloSolicitacaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:consultarProtocoloSolicitacaoNumeracao"/>
+
+     </message>
+
+     <message name="consultarProtocoloSolicitacaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:consultarProtocoloSolicitacaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="solicitarDistribuicaoNumeracaoRequest">
+
+          <part name="parameters" element="impl:solicitarDistribuicaoNumeracao"/>
+
+     </message>
+
+     <message name="solicitarDistribuicaoNumeracaoResponse">
+
+          <part name="parameters" element="impl:solicitarDistribuicaoNumeracaoResponse"/>
+
+     </message>
+
+     <message name="consultarSolicitacaoDistribuicaoRequest">
+
+          <part name="parameters" element="impl:consultarSolicitacaoDistribuicao"/>
+
+     </message>
+
+     <message name="consultarSolicitacaoDistribuicaoResponse">
+
+          <part name="parameters" element="impl:consultarSolicitacaoDistribuicaoResponse"/>
+
+     </message>
+
+     <message name="consultarMovimentacaoExternaRequest">
+
+          <part name="parameters" element="impl:consultarMovimentacaoExterna"/>
+
+     </message>
+
+     <message name="consultarMovimentacaoExternaResponse">
+
+          <part name="parameters" element="impl:consultarMovimentacaoExternaResponse"/>
+
+     </message>
+
+     <message name="informarPeriodoConfinamentoRequest">
+
+          <part name="parameters" element="impl:informarPeriodoConfinamento"/>
+
+     </message>
+
+     <message name="informarPeriodoConfinamentoResponse">
+
+          <part name="parameters" element="impl:informarPeriodoConfinamentoResponse"/>
+
+     </message>
+
+     <message name="vincularNroSisbovNroEletronicoRequest">
+
+          <part name="parameters" element="impl:vincularNroSisbovNroEletronico"/>
+
+     </message>
+
+     <message name="vincularNroSisbovNroEletronicoResponse">
+
+          <part name="parameters" element="impl:vincularNroSisbovNroEletronicoResponse"/>
+
+     </message>
+
+     <message name="recuperarNroEletronicoRequest">
+
+          <part name="parameters" element="impl:recuperarNroEletronico"/>
+
+     </message>
+
+     <message name="recuperarNroEletronicoResponse">
+
+          <part name="parameters" element="impl:recuperarNroEletronicoResponse"/>
+
+     </message>
+
+     <message name="informarAjusteRebanhoRequest">
+
+          <part name="parameters" element="impl:informarAjusteRebanho"/>
+
+     </message>
+
+     <message name="informarAjusteRebanhoResponse">
+
+          <part name="parameters" element="impl:informarAjusteRebanhoResponse"/>
+
+     </message>
+
+     <portType name="WsSISBOV">
+
+          <operation name="recuperarTabela">
+
+               <input name="recuperarTabelaRequest" message="impl:recuperarTabelaRequest"/>
+
+               <output name="recuperarTabelaResponse" message="impl:recuperarTabelaResponse"/>
+
+          </operation>
+
+          <operation name="recuperarTabelaMunicipios">
+
+               <input name="recuperarTabelaMunicipiosRequest" message="impl:recuperarTabelaMunicipiosRequest"/>
+
+               <output name="recuperarTabelaMunicipiosResponse" message="impl:recuperarTabelaMunicipiosResponse"/>
+
+          </operation>
+
+          <operation name="recuperarVinculoMorteCausa">
+
+               <input name="recuperarVinculoMorteCausaRequest" message="impl:recuperarVinculoMorteCausaRequest"/>
+
+               <output name="recuperarVinculoMorteCausaResponse" message="impl:recuperarVinculoMorteCausaResponse"/>
+
+          </operation>
+
+          <operation name="incluirProprietario">
+
+               <input name="incluirProprietarioRequest" message="impl:incluirProprietarioRequest"/>
+
+               <output name="incluirProprietarioResponse" message="impl:incluirProprietarioResponse"/>
+
+          </operation>
+
+          <operation name="alterarProprietario">
+
+               <input name="alterarProprietarioRequest" message="impl:alterarProprietarioRequest"/>
+
+               <output name="alterarProprietarioResponse" message="impl:alterarProprietarioResponse"/>
+
+          </operation>
+
+          <operation name="incluirProdutor">
+
+               <input name="incluirProdutorRequest" message="impl:incluirProdutorRequest"/>
+
+               <output name="incluirProdutorResponse" message="impl:incluirProdutorResponse"/>
+
+          </operation>
+
+          <operation name="alterarProdutor">
+
+               <input name="alterarProdutorRequest" message="impl:alterarProdutorRequest"/>
+
+               <output name="alterarProdutorResponse" message="impl:alterarProdutorResponse"/>
+
+          </operation>
+
+          <operation name="incluirSupervisor">
+
+               <input name="incluirSupervisorRequest" message="impl:incluirSupervisorRequest"/>
+
+               <output name="incluirSupervisorResponse" message="impl:incluirSupervisorResponse"/>
+
+          </operation>
+
+          <operation name="alterarSupervisor">
+
+               <input name="alterarSupervisorRequest" message="impl:alterarSupervisorRequest"/>
+
+               <output name="alterarSupervisorResponse" message="impl:alterarSupervisorResponse"/>
+
+          </operation>
+
+          <operation name="consultarPropriedade">
+
+               <input name="consultarPropriedadeRequest" message="impl:consultarPropriedadeRequest"/>
+
+               <output name="consultarPropriedadeResponse" message="impl:consultarPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="incluirPropriedade">
+
+               <input name="incluirPropriedadeRequest" message="impl:incluirPropriedadeRequest"/>
+
+               <output name="incluirPropriedadeResponse" message="impl:incluirPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="alterarPropriedade">
+
+               <input name="alterarPropriedadeRequest" message="impl:alterarPropriedadeRequest"/>
+
+               <output name="alterarPropriedadeResponse" message="impl:alterarPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="vincularProprietarioPropriedade">
+
+               <input name="vincularProprietarioPropriedadeRequest" message="impl:vincularProprietarioPropriedadeRequest"/>
+
+               <output name="vincularProprietarioPropriedadeResponse" message="impl:vincularProprietarioPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="desvincularProdutorPropriedade">
+
+               <input name="desvincularProdutorPropriedadeRequest" message="impl:desvincularProdutorPropriedadeRequest"/>
+
+               <output name="desvincularProdutorPropriedadeResponse" message="impl:desvincularProdutorPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="desvincularPropriedadeProprietario">
+
+               <input name="desvincularPropriedadeProprietarioRequest" message="impl:desvincularPropriedadeProprietarioRequest"/>
+
+               <output name="desvincularPropriedadeProprietarioResponse" message="impl:desvincularPropriedadeProprietarioResponse"/>
+
+          </operation>
+
+          <operation name="vincularProdutorPropriedade">
+
+               <input name="vincularProdutorPropriedadeRequest" message="impl:vincularProdutorPropriedadeRequest"/>
+
+               <output name="vincularProdutorPropriedadeResponse" message="impl:vincularProdutorPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="incluirVistoriaERAS">
+
+               <input name="incluirVistoriaERASRequest" message="impl:incluirVistoriaERASRequest"/>
+
+               <output name="incluirVistoriaERASResponse" message="impl:incluirVistoriaERASResponse"/>
+
+          </operation>
+
+          <operation name="solicitarNumeracao">
+
+               <input name="solicitarNumeracaoRequest" message="impl:solicitarNumeracaoRequest"/>
+
+               <output name="solicitarNumeracaoResponse" message="impl:solicitarNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="solicitarNumeracaoReimpressao">
+
+               <input name="solicitarNumeracaoReimpressaoRequest" message="impl:solicitarNumeracaoReimpressaoRequest"/>
+
+               <output name="solicitarNumeracaoReimpressaoResponse" message="impl:solicitarNumeracaoReimpressaoResponse"/>
+
+          </operation>
+
+          <operation name="recuperarNumeracao">
+
+               <input name="recuperarNumeracaoRequest" message="impl:recuperarNumeracaoRequest"/>
+
+               <output name="recuperarNumeracaoResponse" message="impl:recuperarNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="consultaSolicitacaoNumeracao">
+
+               <input name="consultaSolicitacaoNumeracaoRequest" message="impl:consultaSolicitacaoNumeracaoRequest"/>
+
+               <output name="consultaSolicitacaoNumeracaoResponse" message="impl:consultaSolicitacaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="consultarNumeracaoReimpressao">
+
+               <input name="consultarNumeracaoReimpressaoRequest" message="impl:consultarNumeracaoReimpressaoRequest"/>
+
+               <output name="consultarNumeracaoReimpressaoResponse" message="impl:consultarNumeracaoReimpressaoResponse"/>
+
+          </operation>
+
+          <operation name="incluirAnimal">
+
+               <input name="incluirAnimalRequest" message="impl:incluirAnimalRequest"/>
+
+               <output name="incluirAnimalResponse" message="impl:incluirAnimalResponse"/>
+
+          </operation>
+
+          <operation name="incluirAnimalImportado">
+
+               <input name="incluirAnimalImportadoRequest" message="impl:incluirAnimalImportadoRequest"/>
+
+               <output name="incluirAnimalImportadoResponse" message="impl:incluirAnimalImportadoResponse"/>
+
+          </operation>
+
+          <operation name="alterarAnimalImportado">
+
+               <input name="alterarAnimalImportadoRequest" message="impl:alterarAnimalImportadoRequest"/>
+
+               <output name="alterarAnimalImportadoResponse" message="impl:alterarAnimalImportadoResponse"/>
+
+          </operation>
+
+          <operation name="alterarAnimal">
+
+               <input name="alterarAnimalRequest" message="impl:alterarAnimalRequest"/>
+
+               <output name="alterarAnimalResponse" message="impl:alterarAnimalResponse"/>
+
+          </operation>
+
+          <operation name="alterarIE">
+
+               <input name="alterarIERequest" message="impl:alterarIERequest"/>
+
+               <output name="alterarIEResponse" message="impl:alterarIEResponse"/>
+
+          </operation>
+
+          <operation name="recuperarSenha">
+
+               <input name="recuperarSenhaRequest" message="impl:recuperarSenhaRequest"/>
+
+               <output name="recuperarSenhaResponse" message="impl:recuperarSenhaResponse"/>
+
+          </operation>
+
+          <operation name="cadastrarEmail">
+
+               <input name="cadastrarEmailRequest" message="impl:cadastrarEmailRequest"/>
+
+               <output name="cadastrarEmailResponse" message="impl:cadastrarEmailResponse"/>
+
+          </operation>
+
+          <operation name="consultarEmail">
+
+               <input name="consultarEmailRequest" message="impl:consultarEmailRequest"/>
+
+               <output name="consultarEmailResponse" message="impl:consultarEmailResponse"/>
+
+          </operation>
+
+          <operation name="alterarSenha">
+
+               <input name="alterarSenhaRequest" message="impl:alterarSenhaRequest"/>
+
+               <output name="alterarSenhaResponse" message="impl:alterarSenhaResponse"/>
+
+          </operation>
+
+          <operation name="consultarDadosAnimal">
+
+               <input name="consultarDadosAnimalRequest" message="impl:consultarDadosAnimalRequest"/>
+
+               <output name="consultarDadosAnimalResponse" message="impl:consultarDadosAnimalResponse"/>
+
+          </operation>
+
+          <operation name="consultarMovimentacao">
+
+               <input name="consultarMovimentacaoRequest" message="impl:consultarMovimentacaoRequest"/>
+
+               <output name="consultarMovimentacaoResponse" message="impl:consultarMovimentacaoResponse"/>
+
+          </operation>
+
+          <operation name="consultarDadosAnimalImportado">
+
+               <input name="consultarDadosAnimalImportadoRequest" message="impl:consultarDadosAnimalImportadoRequest"/>
+
+               <output name="consultarDadosAnimalImportadoResponse" message="impl:consultarDadosAnimalImportadoResponse"/>
+
+          </operation>
+
+          <operation name="informarMorteAnimal">
+
+               <input name="informarMorteAnimalRequest" message="impl:informarMorteAnimalRequest"/>
+
+               <output name="informarMorteAnimalResponse" message="impl:informarMorteAnimalResponse"/>
+
+          </operation>
+
+          <operation name="informarDesligamentoAnimal">
+
+               <input name="informarDesligamentoAnimalRequest" message="impl:informarDesligamentoAnimalRequest"/>
+
+               <output name="informarDesligamentoAnimalResponse" message="impl:informarDesligamentoAnimalResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimal">
+
+               <input name="movimentarAnimalRequest" message="impl:movimentarAnimalRequest"/>
+
+               <output name="movimentarAnimalResponse" message="impl:movimentarAnimalResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalPropAglomeracao">
+
+               <input name="movimentarAnimalPropAglomeracaoRequest" message="impl:movimentarAnimalPropAglomeracaoRequest"/>
+
+               <output name="movimentarAnimalPropAglomeracaoResponse" message="impl:movimentarAnimalPropAglomeracaoResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoProp">
+
+               <input name="movimentarAnimalAglomeracaoPropRequest" message="impl:movimentarAnimalAglomeracaoPropRequest"/>
+
+               <output name="movimentarAnimalAglomeracaoPropResponse" message="impl:movimentarAnimalAglomeracaoPropResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoAglomeracao">
+
+               <input name="movimentarAnimalAglomeracaoAglomeracaoRequest" message="impl:movimentarAnimalAglomeracaoAglomeracaoRequest"/>
+
+               <output name="movimentarAnimalAglomeracaoAglomeracaoResponse" message="impl:movimentarAnimalAglomeracaoAglomeracaoResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoAglomeracaoNovaProp">
+
+               <input name="movimentarAnimalAglomeracaoAglomeracaoNovaPropRequest" message="impl:movimentarAnimalAglomeracaoAglomeracaoNovaPropRequest"/>
+
+               <output name="movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse" message="impl:movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoNovaProp">
+
+               <input name="movimentarAnimalAglomeracaoNovaPropRequest" message="impl:movimentarAnimalAglomeracaoNovaPropRequest"/>
+
+               <output name="movimentarAnimalAglomeracaoNovaPropResponse" message="impl:movimentarAnimalAglomeracaoNovaPropResponse"/>
+
+          </operation>
+
+          <operation name="movimentarAnimalParaFrigorifico">
+
+               <input name="movimentarAnimalParaFrigorificoRequest" message="impl:movimentarAnimalParaFrigorificoRequest"/>
+
+               <output name="movimentarAnimalParaFrigorificoResponse" message="impl:movimentarAnimalParaFrigorificoResponse"/>
+
+          </operation>
+
+          <operation name="inventariarSolicitacaoNumeracao">
+
+               <input name="inventariarSolicitacaoNumeracaoRequest" message="impl:inventariarSolicitacaoNumeracaoRequest"/>
+
+               <output name="inventariarSolicitacaoNumeracaoResponse" message="impl:inventariarSolicitacaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="cancelarMovimentacao">
+
+               <input name="cancelarMovimentacaoRequest" message="impl:cancelarMovimentacaoRequest"/>
+
+               <output name="cancelarMovimentacaoResponse" message="impl:cancelarMovimentacaoResponse"/>
+
+          </operation>
+
+          <operation name="excluirVistoria">
+
+               <input name="excluirVistoriaRequest" message="impl:excluirVistoriaRequest"/>
+
+               <output name="excluirVistoriaResponse" message="impl:excluirVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="consultarAnimaisAbatidos">
+
+               <input name="consultarAnimaisAbatidosRequest" message="impl:consultarAnimaisAbatidosRequest"/>
+
+               <output name="consultarAnimaisAbatidosResponse" message="impl:consultarAnimaisAbatidosResponse"/>
+
+          </operation>
+
+          <operation name="alterarSolicitacaoNumeracao">
+
+               <input name="alterarSolicitacaoNumeracaoRequest" message="impl:alterarSolicitacaoNumeracaoRequest"/>
+
+               <output name="alterarSolicitacaoNumeracaoResponse" message="impl:alterarSolicitacaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="cancelarSolicitacaoNumeracao">
+
+               <input name="cancelarSolicitacaoNumeracaoRequest" message="impl:cancelarSolicitacaoNumeracaoRequest"/>
+
+               <output name="cancelarSolicitacaoNumeracaoResponse" message="impl:cancelarSolicitacaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="informarNotaFiscal">
+
+               <input name="informarNotaFiscalRequest" message="impl:informarNotaFiscalRequest"/>
+
+               <output name="informarNotaFiscalResponse" message="impl:informarNotaFiscalResponse"/>
+
+          </operation>
+
+          <operation name="finalizarSolicNumAnimalImportado">
+
+               <input name="finalizarSolicNumAnimalImportadoRequest" message="impl:finalizarSolicNumAnimalImportadoRequest"/>
+
+               <output name="finalizarSolicNumAnimalImportadoResponse" message="impl:finalizarSolicNumAnimalImportadoResponse"/>
+
+          </operation>
+
+          <operation name="iniciarVistoria">
+
+               <input name="iniciarVistoriaRequest" message="impl:iniciarVistoriaRequest"/>
+
+               <output name="iniciarVistoriaResponse" message="impl:iniciarVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="reagendarVistoria">
+
+               <input name="reagendarVistoriaRequest" message="impl:reagendarVistoriaRequest"/>
+
+               <output name="reagendarVistoriaResponse" message="impl:reagendarVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="consultarAgendamentoVistoria">
+
+               <input name="consultarAgendamentoVistoriaRequest" message="impl:consultarAgendamentoVistoriaRequest"/>
+
+               <output name="consultarAgendamentoVistoriaResponse" message="impl:consultarAgendamentoVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="recuperarCheckListVistoria">
+
+               <input name="recuperarCheckListVistoriaRequest" message="impl:recuperarCheckListVistoriaRequest"/>
+
+               <output name="recuperarCheckListVistoriaResponse" message="impl:recuperarCheckListVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="recuperarVistoriaLancada">
+
+               <input name="recuperarVistoriaLancadaRequest" message="impl:recuperarVistoriaLancadaRequest"/>
+
+               <output name="recuperarVistoriaLancadaResponse" message="impl:recuperarVistoriaLancadaResponse"/>
+
+          </operation>
+
+          <operation name="lancarVistoria">
+
+               <input name="lancarVistoriaRequest" message="impl:lancarVistoriaRequest"/>
+
+               <output name="lancarVistoriaResponse" message="impl:lancarVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="emitirParecerVistoriaRT">
+
+               <input name="emitirParecerVistoriaRTRequest" message="impl:emitirParecerVistoriaRTRequest"/>
+
+               <output name="emitirParecerVistoriaRTResponse" message="impl:emitirParecerVistoriaRTResponse"/>
+
+          </operation>
+
+          <operation name="finalizarVistoria">
+
+               <input name="finalizarVistoriaRequest" message="impl:finalizarVistoriaRequest"/>
+
+               <output name="finalizarVistoriaResponse" message="impl:finalizarVistoriaResponse"/>
+
+          </operation>
+
+          <operation name="suspenderPropriedade">
+
+               <input name="suspenderPropriedadeRequest" message="impl:suspenderPropriedadeRequest"/>
+
+               <output name="suspenderPropriedadeResponse" message="impl:suspenderPropriedadeResponse"/>
+
+          </operation>
+
+          <operation name="solicitarCancelamentoSuspensao">
+
+               <input name="solicitarCancelamentoSuspensaoRequest" message="impl:solicitarCancelamentoSuspensaoRequest"/>
+
+               <output name="solicitarCancelamentoSuspensaoResponse" message="impl:solicitarCancelamentoSuspensaoResponse"/>
+
+          </operation>
+
+          <operation name="consultarSuspensao">
+
+               <input name="consultarSuspensaoRequest" message="impl:consultarSuspensaoRequest"/>
+
+               <output name="consultarSuspensaoResponse" message="impl:consultarSuspensaoResponse"/>
+
+          </operation>
+
+          <operation name="solicitarAlteracaoPosse">
+
+               <input name="solicitarAlteracaoPosseRequest" message="impl:solicitarAlteracaoPosseRequest"/>
+
+               <output name="solicitarAlteracaoPosseResponse" message="impl:solicitarAlteracaoPosseResponse"/>
+
+          </operation>
+
+          <operation name="consultarProtocoloSolicitacaoNumeracao">
+
+               <input name="consultarProtocoloSolicitacaoNumeracaoRequest" message="impl:consultarProtocoloSolicitacaoNumeracaoRequest"/>
+
+               <output name="consultarProtocoloSolicitacaoNumeracaoResponse" message="impl:consultarProtocoloSolicitacaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="solicitarDistribuicaoNumeracao">
+
+               <input name="solicitarDistribuicaoNumeracaoRequest" message="impl:solicitarDistribuicaoNumeracaoRequest"/>
+
+               <output name="solicitarDistribuicaoNumeracaoResponse" message="impl:solicitarDistribuicaoNumeracaoResponse"/>
+
+          </operation>
+
+          <operation name="consultarSolicitacaoDistribuicao">
+
+               <input name="consultarSolicitacaoDistribuicaoRequest" message="impl:consultarSolicitacaoDistribuicaoRequest"/>
+
+               <output name="consultarSolicitacaoDistribuicaoResponse" message="impl:consultarSolicitacaoDistribuicaoResponse"/>
+
+          </operation>
+
+          <operation name="consultarMovimentacaoExterna">
+
+               <input name="consultarMovimentacaoExternaRequest" message="impl:consultarMovimentacaoExternaRequest"/>
+
+               <output name="consultarMovimentacaoExternaResponse" message="impl:consultarMovimentacaoExternaResponse"/>
+
+          </operation>
+
+          <operation name="informarPeriodoConfinamento">
+
+               <input name="informarPeriodoConfinamentoRequest" message="impl:informarPeriodoConfinamentoRequest"/>
+
+               <output name="informarPeriodoConfinamentoResponse" message="impl:informarPeriodoConfinamentoResponse"/>
+
+          </operation>
+
+          <operation name="vincularNroSisbovNroEletronico">
+
+               <input name="vincularNroSisbovNroEletronicoRequest" message="impl:vincularNroSisbovNroEletronicoRequest"/>
+
+               <output name="vincularNroSisbovNroEletronicoResponse" message="impl:vincularNroSisbovNroEletronicoResponse"/>
+
+          </operation>
+
+          <operation name="recuperarNroEletronico">
+
+               <input name="recuperarNroEletronicoRequest" message="impl:recuperarNroEletronicoRequest"/>
+
+               <output name="recuperarNroEletronicoResponse" message="impl:recuperarNroEletronicoResponse"/>
+
+          </operation>
+
+          <operation name="informarAjusteRebanho">
+
+               <input name="informarAjusteRebanhoRequest" message="impl:informarAjusteRebanhoRequest"/>
+
+               <output name="informarAjusteRebanhoResponse" message="impl:informarAjusteRebanhoResponse"/>
+
+          </operation>
+
+     </portType>
+
+     <binding name="WsSISBOVSoapBinding" type="impl:WsSISBOV">
+
+          <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+          <operation name="recuperarTabela">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarTabelaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarTabelaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarTabelaMunicipios">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarTabelaMunicipiosRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarTabelaMunicipiosResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarVinculoMorteCausa">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarVinculoMorteCausaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarVinculoMorteCausaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirProprietario">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirProprietarioRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirProprietarioResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarProprietario">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarProprietarioRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarProprietarioResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirProdutor">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirProdutorRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirProdutorResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarProdutor">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarProdutorRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarProdutorResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirSupervisor">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirSupervisorRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirSupervisorResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarSupervisor">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarSupervisorRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarSupervisorResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="vincularProprietarioPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="vincularProprietarioPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="vincularProprietarioPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="desvincularProdutorPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="desvincularProdutorPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="desvincularProdutorPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="desvincularPropriedadeProprietario">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="desvincularPropriedadeProprietarioRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="desvincularPropriedadeProprietarioResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="vincularProdutorPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="vincularProdutorPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="vincularProdutorPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirVistoriaERAS">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirVistoriaERASRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirVistoriaERASResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="solicitarNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="solicitarNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="solicitarNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="solicitarNumeracaoReimpressao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="solicitarNumeracaoReimpressaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="solicitarNumeracaoReimpressaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultaSolicitacaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultaSolicitacaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultaSolicitacaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarNumeracaoReimpressao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarNumeracaoReimpressaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarNumeracaoReimpressaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="incluirAnimalImportado">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="incluirAnimalImportadoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="incluirAnimalImportadoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarAnimalImportado">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarAnimalImportadoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarAnimalImportadoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarIE">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarIERequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarIEResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarSenha">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarSenhaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarSenhaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="cadastrarEmail">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="cadastrarEmailRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="cadastrarEmailResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarEmail">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarEmailRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarEmailResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarSenha">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarSenhaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarSenhaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarDadosAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarDadosAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarDadosAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarMovimentacao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarMovimentacaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarMovimentacaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarDadosAnimalImportado">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarDadosAnimalImportadoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarDadosAnimalImportadoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="informarMorteAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="informarMorteAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="informarMorteAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="informarDesligamentoAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="informarDesligamentoAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="informarDesligamentoAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalPropAglomeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalPropAglomeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalPropAglomeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoProp">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalAglomeracaoPropRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalAglomeracaoPropResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoAglomeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalAglomeracaoAglomeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalAglomeracaoAglomeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoAglomeracaoNovaProp">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalAglomeracaoAglomeracaoNovaPropRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalAglomeracaoAglomeracaoNovaPropResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalAglomeracaoNovaProp">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalAglomeracaoNovaPropRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalAglomeracaoNovaPropResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="movimentarAnimalParaFrigorifico">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="movimentarAnimalParaFrigorificoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="movimentarAnimalParaFrigorificoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="inventariarSolicitacaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="inventariarSolicitacaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="inventariarSolicitacaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="cancelarMovimentacao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="cancelarMovimentacaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="cancelarMovimentacaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="excluirVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="excluirVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="excluirVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarAnimaisAbatidos">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarAnimaisAbatidosRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarAnimaisAbatidosResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="alterarSolicitacaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="alterarSolicitacaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="alterarSolicitacaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="cancelarSolicitacaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="cancelarSolicitacaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="cancelarSolicitacaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="informarNotaFiscal">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="informarNotaFiscalRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="informarNotaFiscalResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="finalizarSolicNumAnimalImportado">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="finalizarSolicNumAnimalImportadoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="finalizarSolicNumAnimalImportadoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="iniciarVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="iniciarVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="iniciarVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="reagendarVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="reagendarVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="reagendarVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarAgendamentoVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarAgendamentoVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarAgendamentoVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarCheckListVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarCheckListVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarCheckListVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarVistoriaLancada">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarVistoriaLancadaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarVistoriaLancadaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="lancarVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="lancarVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="lancarVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="emitirParecerVistoriaRT">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="emitirParecerVistoriaRTRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="emitirParecerVistoriaRTResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="finalizarVistoria">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="finalizarVistoriaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="finalizarVistoriaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="suspenderPropriedade">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="suspenderPropriedadeRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="suspenderPropriedadeResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="solicitarCancelamentoSuspensao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="solicitarCancelamentoSuspensaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="solicitarCancelamentoSuspensaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarSuspensao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarSuspensaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarSuspensaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="solicitarAlteracaoPosse">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="solicitarAlteracaoPosseRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="solicitarAlteracaoPosseResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarProtocoloSolicitacaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarProtocoloSolicitacaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarProtocoloSolicitacaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="solicitarDistribuicaoNumeracao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="solicitarDistribuicaoNumeracaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="solicitarDistribuicaoNumeracaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarSolicitacaoDistribuicao">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarSolicitacaoDistribuicaoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarSolicitacaoDistribuicaoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="consultarMovimentacaoExterna">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="consultarMovimentacaoExternaRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="consultarMovimentacaoExternaResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="informarPeriodoConfinamento">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="informarPeriodoConfinamentoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="informarPeriodoConfinamentoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="vincularNroSisbovNroEletronico">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="vincularNroSisbovNroEletronicoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="vincularNroSisbovNroEletronicoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="recuperarNroEletronico">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="recuperarNroEletronicoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="recuperarNroEletronicoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+          <operation name="informarAjusteRebanho">
+
+               <wsdlsoap:operation soapAction=""/>
+
+               <input name="informarAjusteRebanhoRequest">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </input>
+
+               <output name="informarAjusteRebanhoResponse">
+
+                    <wsdlsoap:body use="literal"/>
+
+               </output>
+
+          </operation>
+
+     </binding>
+
+     <service name="WsSISBOVService">
+
+          <port name="WsSISBOV" binding="impl:WsSISBOVSoapBinding">
+
+               <wsdlsoap:address location="http://extranet.agricultura.gov.br/sisbov_ws_prd/services/WsSISBOV"/>
+
+          </port>
+
+     </service>
+
+</definitions>

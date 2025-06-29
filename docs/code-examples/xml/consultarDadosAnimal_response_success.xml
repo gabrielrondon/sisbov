@@ -1,0 +1,35 @@
+<!--
+Este é um exemplo de uma resposta bem-sucedida do servidor SISBOV para a requisição 'consultarDadosAnimal'.
+O cliente SOAP (Zeep) analisa este XML e o transforma no objeto Python que vimos no script de exemplo.
+-->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:consultarDadosAnimalResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:consultarDadosAnimalReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        
+        <!-- Estrutura Base de Retorno (RetornoWsSISBOV) -->
+        <ns1:ambiente>PRODUCAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>987654321</ns1:idTransacao>
+        <ns1:listaErros xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:status>0</ns1:status> <!-- 0 indica sucesso -->
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+        <!-- Campos Específicos de RetornoConsultarDadosAnimal -->
+        <ns1:dataIdentificacao>01/01/2023</ns1:dataIdentificacao>
+        <ns1:dataInclusao>02/01/2023</ns1:dataInclusao>
+        <ns1:dataLiberacaoAbate>01/01/2025</ns1:dataLiberacaoAbate>
+        <ns1:dataNascimento>15/12/2022</ns1:dataNascimento>
+        <ns1:dia xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:numero>123456789012345</ns1:numero>
+        <ns1:numeroDefinitivo>123456789012345</ns1:numeroDefinitivo>
+        <ns1:numeroProvisorio xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:pais>Brasil</ns1:pais>
+        <ns1:raca>NELORE</ns1:raca>
+        <ns1:sexo>M</ns1:sexo>
+        <ns1:tipoIdentificacao>BRINCO</ns1:tipoIdentificacao>
+
+      </ns0:consultarDadosAnimalReturn>
+    </ns0:consultarDadosAnimalResponse>
+  </soap:Body>
+</soap:Envelope>
