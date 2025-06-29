@@ -80,7 +80,7 @@ function App() {
     const currentOperationDetails = operations[selectedOperation]; // Renomeado para evitar conflito/confusão
 
     try {
-      const response = await fetch(operation.endpoint, {
+      const response = await fetch(currentOperationDetails.endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
