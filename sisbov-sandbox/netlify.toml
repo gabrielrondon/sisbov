@@ -1,0 +1,15 @@
+# Configuração para o deploy no Netlify
+
+[build]
+  # Comando para construir o projeto React
+  command = "npm run build"
+  # Diretório onde o build do React será gerado
+  publish = "build"
+  # Diretório onde as nossas funções serverless estão
+  functions = "netlify/functions"
+
+# Redirecionamento para que nossa aplicação React lide com as rotas
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

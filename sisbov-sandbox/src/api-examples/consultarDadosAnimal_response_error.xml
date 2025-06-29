@@ -1,0 +1,38 @@
+<!--
+Este é um exemplo de uma resposta de erro do servidor SISBOV.
+Isto acontece quando um parâmetro está incorreto, o animal não é encontrado, ou outra regra de negócio é violada.
+-->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns0:consultarDadosAnimalResponse xmlns:ns0="http://servicosWeb.sisbov.mapa.gov.br">
+      <ns0:consultarDadosAnimalReturn xmlns:ns1="http://retorno.servicosWeb.sisbov.mapa.gov.br">
+        
+        <!-- Estrutura Base de Retorno (RetornoWsSISBOV) -->
+        <ns1:ambiente>PRODUCAO</ns1:ambiente>
+        <ns1:erroBanco xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:idTransacao>987654322</ns1:idTransacao>
+        
+        <!-- A lista de erros agora está preenchida -->
+        <ns1:listaErros>
+          <item xmlns:ns2="http://model.sisbov.mapa.gov.br">
+            <ns2:codigoErro>ERRO-005</ns2:codigoErro>
+            <ns2:menssagemErro>Animal com número SISBOV informado não encontrado na base de dados.</ns2:menssagemErro>
+            <ns2:pilhaDeErro xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <ns2:valorInformado>
+                <item>999999999999999</item>
+            </ns2:valorInformado>
+          </item>
+        </ns1:listaErros>
+
+        <ns1:status>1</ns1:status> <!-- Status diferente de 0 indica erro -->
+        <ns1:trace xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+
+        <!-- Os outros campos específicos podem vir nulos ou vazios -->
+        <ns1:dataIdentificacao xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <ns1:dataInclusao xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <!-- ... etc ... -->
+
+      </ns0:consultarDadosAnimalReturn>
+    </ns0:consultarDadosAnimalResponse>
+  </soap:Body>
+</soap:Envelope>
